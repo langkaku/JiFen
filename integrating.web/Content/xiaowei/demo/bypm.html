@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>积分排名</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="css/plug/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/plug/simple-line-icons.min.css" rel="stylesheet"/>
+    <link href="css/plug/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/plug/daterangepicker-bs3.css" rel="stylesheet"/>
+    <link href="css/plug/components.css" rel="stylesheet"/>
+    <link href="css/plug/fen.css" rel="stylesheet"/>
+    <link href="css/bypm.css" rel="stylesheet"/>
+    <script src="js/plug/jquery.min.js"></script>
+    <script src="js/plug/jquery-migrate.min.js"></script>
+    <script src="js/plug/bootstrap.min.js"></script>
+    <script src="js/plug/moment.min.js"></script>
+    <script src="js/plug/daterangepicker.js"></script>
+    <script src="js/plug/metronic.js"></script>
+    <script src="js/plug/fen.js"></script>
+    <script src="js/plug/rank-hdip.js"></script>
+</head>
+<body>
+    <div class="page-padding">
+        <div class="portlet box purple" id="colors" style="border:0;">
+            <div class="portlet-title">
+                <ul class="nav nav-tabs pull-left">
+                    <li class="active" fix="">
+                        <a href="#portlet_tab_1" data-toggle="tab" id="tab1">积分排行</a>
+                    </li>
+                </ul>
+            </div>
+            <input type="hidden" name="FDeptId" id="FDeptId" value="0">
+            <div class="portlet-body">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="FDeptName" style="font-size:16px;line-height: 34px;text-decoration: none;">全公司<b class="caret"></b></a>
+                    <div class="form-inline pull-right date" style="">
+                        <div class="input-group" id="defaultrange">
+                            <input type="text" class="form-control" placeholder="请选择日期">
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu" id="FDeptList">
+                        <li class="inbox0">
+                            <a href="javascript:;" class="btn" fdeptid="0">全公司</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4685714055430001">
+                            <a href="javascript:;" class="btn" fdeptid="4685714055430001">设计部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4706401171880001">
+                            <a href="javascript:;" class="btn" fdeptid="4706401171880001">文峰店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4706401412030001">
+                            <a href="javascript:;" class="btn" fdeptid="4706401412030001">人事部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4718533340750001">
+                            <a href="javascript:;" class="btn" fdeptid="4718533340750001">东区生保组</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4718533740130001">
+                            <a href="javascript:;" class="btn" fdeptid="4718533740130001">财务部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4718533832470001">
+                            <a href="javascript:;" class="btn" fdeptid="4718533832470001">董事会</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4718533960600001">
+                            <a href="javascript:;" class="btn" fdeptid="4718533960600001">总经办</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4732993107720001">
+                            <a href="javascript:;" class="btn" fdeptid="4732993107720001">科技部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4747702122740001">
+                            <a href="javascript:;" class="btn" fdeptid="4747702122740001">西乡店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4965687623560001">
+                            <a href="javascript:;" class="btn" fdeptid="4965687623560001">海外销售部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830001">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830001">深大店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830045">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830045">东莞店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830073">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830073">财务部1</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830075">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830075">盐田店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830089">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830089">南阳智慧丝</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830093">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830093">南宁店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830099">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830099">行政部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830101">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830101">宝安店</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830109">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830109">研发部</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830113">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830113">商用工艺科</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830115">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830115">恒大</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830117">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830117">城西公交公司</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830119">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830119">龙骧巴士总公司</a>
+                            <b></b>
+                        </li>
+                        <li class="inbox4976016740830121">
+                            <a href="javascript:;" class="btn" fdeptid="4976016740830121">城东公交分公司</a>
+                            <b></b>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div id="FContent">
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="4732250577050001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第1名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>测试员</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>科技部</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>经理</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5205660248060001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第2名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>张云魁</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>董事会</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>副经理（行政）</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5439726665360001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第2名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>卢晓春</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>总经办</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>副经理（行政）</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5439928586640001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第2名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>魏文丽</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>东莞店</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>值班主任</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5371647890500001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第3名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>佟帅</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>文峰店</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>副经理（行政）</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5428574027210001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第4名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>韩金龙</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>海外销售部</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>经理</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5434639586390001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第4名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>张世元</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>盐田店</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>副经理（行政）</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="5438945186200001">
+                        <tbody>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">排名</td>
+                                <td>第4名</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">姓名</td>
+                                <td>何正伟</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">部门</td>
+                                <td>海外销售部</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">职位</td>
+                                <td>副经理（行政）</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖积分</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">扣积分</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="" class="FFenName">阶段得分</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="widget" data-widget="nav4" class="nav4">
+        <div id="nav4_ul" class="nav_4">
+            <ul class="footer" style="margin:0px !important;">
+                <li>
+                    <a href="index.html" id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+                </li>
+                <li>
+                    <a href="wd.html" id="userMenu"><i class="fa fa-user"></i><p>我的</p></a>
+                </li>
+                <li>
+                    <a href="sqjf.html" id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+                </li>
+                <li>
+                    <a href="jfgl.html" id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function () {
+            Metronic.init(); // init metronic core components
+            Module.init();
+        });
+    </script>
+</body>
+</html>

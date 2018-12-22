@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>积分实时统计</title>
+    <link href="~/Content/css/common.css" rel="stylesheet" />
+    <link href="~/Content/css/index.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.js"></script>
+    <script src="~/Content/js/highcharts.js"></script>
+
+</head>
+<body>
+    <div class="indexOut">
+        <div class="header">
+            <h1>积分实时统计</h1>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>各部门基础类积分统计</h1>
+            </div>
+            <div class="content">
+                <div class="chart" id="chart1"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>各部门活动参与平均积分</h1>
+            </div>
+            <div class="content">
+                <div class="chart" id="chart2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>各部门考勤积分平均值</h1>
+            </div>
+            <div class="content">
+                <div class="chart" id="chart3"></div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/js/index.js"></script>
+</body>
+</html>

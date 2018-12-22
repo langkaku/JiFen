@@ -1,0 +1,6 @@
+.table-striped tbody tr.active:nth-child(odd) td, .table-striped tbody tr.active:nth-child(even) td {
+    background: #f9f9f9 !important;
+}
+.portlet {
+    overflow: hidden !important;
+}

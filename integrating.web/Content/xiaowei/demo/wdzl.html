@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>我的资料</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<meta content="" name="description">
+	<meta content="" name="author">
+	<link href="css/plug/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/plug/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+	<link href="css/plug/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/plug/components.css" id="style_components" rel="stylesheet" type="text/css">
+	<link href="css/plug/custom.css" rel="stylesheet" type="text/css">
+	<link href="css/plug/fen.css" rel="stylesheet" type="text/css">
+	<link href="css/footer.css" rel="stylesheet" type="text/css">
+	<script src="js/plug/jquery.min.js" type="text/javascript"></script>
+	<script src="js/plug/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="js/plug/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/plug/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="js/plug/jQuery.md5.js" type="text/javascript"></script>
+	<script src="js/plug/fen.js" type="text/javascript"></script>
+	<script src="js/plug/myInformation-hdip.js" type="text/javascript"></script>
+	<script src="js/plug/lrz.bundle.js" type="text/javascript"></script>
+	<script src="js/plug/lrz.all.bundle.js" type="text/javascript"></script>
+	<script src="js/wdzl.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="modal fade draggable-modal" id="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					<h4 class="modal-title">
+					<i class="fa fa-edit" style="font-size:16px; margin-right:10px"></i>修改密码
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form action="http://hi.xiaov100.com/templates/myInformation/myInformation-hdip.html#" id="form" name="form" class="form-horizontal" novalidate="novalidate">
+						<div class="form-body">				
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-3">密码<span class="required" aria-required="true">*</span></label>
+								<div class="col-md-8 col-sm-8 col-xs-8">
+									<input type="password" class="form-control" id="FPass" name="FPass">
+								</div>
+							</div>								
+						</div>
+					</form>		
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn default" data-dismiss="modal">关闭</button>
+					<button type="button" id="savePass" class="btn green">保存</button>
+				</div>											
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="EmploeedId" value="4732250577050001">
+	<div class="page-padding">
+		<div class="portlet box purple" style="border:0;">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-user"></i>&nbsp;我的资料
+				</div>
+			</div>			
+			<div class="portlet-body">
+				<table id="user" class="table table-bordered table-striped" style="background-color:#fff">
+				<tbody>
+				<tr>
+					<td colspan="2">
+						 我的基本资料
+					</td>
+				</tr>			
+				<tr>
+					<td style="width:20%;">
+						 姓名
+					</td>
+					<td style="width:80%">
+						<label id="username">测试员</label>
+					</td>
+				</tr>
+				<tr>
+					<td style="">
+						 密码
+					</td>
+					<td>
+						<span class="text-muted"><a href="javascript:;" id="pencil" class="FPass"><i class="fa fa-pencil"></i> [修改] </a></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="">
+						 电话
+					</td>
+					<td>
+						<label id="tel">13958854575</label>
+					</td>
+				</tr>
+				<tr>
+					<td style="">
+						 性别
+					</td>
+					<td>
+						<label id="sex">男</label>
+					</td>
+				</tr>
+				<tr>
+					<td style="">
+						 入职日期
+					</td>
+					<td>
+						<label id="dob">2016-09-07</label>
+					</td>
+				</tr>		
+				</tbody>
+				</table>
+				<table id="user" class="table table-bordered table-striped">
+				<tbody>		
+				<tr>
+					<td colspan="2">
+						 更多个人资料
+					</td>
+				</tr>														
+				<tr>
+					<td style="">
+						 照片
+					</td>
+					<td style="width:80%">
+						<img src="./我的资料_files/d6505de98f2fbf2bc1bee015b112efce.jpg" alt="" id="FPhoto" style="width: 200px; height: 200px; ">
+						<img src="./我的资料_files/photo-default.jpg" alt="" id="nophoto" style="width: 200px; height: 200px; display: none;">
+						<div class="z_file1">
+						<input type="file" value="" accept="image/jpeg,image/png,image/jpg,image/gif" multiple="" onchange="photoChanage(this);">
+						</div>
+					</td>
+				</tr>			
+				<tr>
+					<td style="">
+						 头像
+					</td>
+					<td>
+						<img src="./我的资料_files/80d71bc947d4e8cfda8d3ba611cbb118.jpg" alt="" id="FHead" style="width: 108px; height: 108px; ">
+						<img src="./我的资料_files/head-default.jpg" alt="" id="nohead" style="width: 108px; height: 108px; display: none;">
+						<div class="z_file2">
+						<input type="file" value="" accept="image/jpeg,image/png,image/jpg,image/gif" multiple="" onchange="headChanage(this);">
+						</div>
+					</td>
+				</tr>			
+				</tbody>
+				</table>
+				<input type="button" id="logout" class="btn red btn-block" value="退出登录">			
+			</div>
+		</div>
+	</div>
+	<div data-role="widget" data-widget="nav4" class="nav4">
+        <div id="nav4_ul" class="nav_4">
+            <ul class="footer" style="margin:0px !important;">
+                <li>
+                    <a href="index.html" id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+                </li>
+                <li>
+                    <a href="wd.html" id="userMenu"><i class="fa fa-user"></i><p>我的</p></a>
+                </li>
+                <li>
+                    <a href="sqjf.html" id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+                </li>
+                <li>
+                    <a href="jfgl.html" id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

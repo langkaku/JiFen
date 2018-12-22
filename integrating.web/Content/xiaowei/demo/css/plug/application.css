@@ -1,0 +1,24 @@
+.portlet > .portlet-title > .nav-tabs > li > a {
+    color: rgba(255,255,255,0.6);
+    text-align: left;
+}
+
+.portlet > .portlet-title > .nav-tabs > li.active > a, .portlet > .portlet-title > .nav-tabs > li:hover > a {
+    background: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse !important;
+}
+
+.cd {
+    border-bottom: 1px solid #dddddd !important;
+    border-top-width: 0px !important
+}
+
+.tcd {
+    border-top: 1px solid #dddddd !important;
+    border-bottom-width: 0px !important
+}

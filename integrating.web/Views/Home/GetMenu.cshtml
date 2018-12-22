@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<integrating.web.Models.MenuInfo>
+@{ var secondList = Model.ToList().Where(m => m.Pid == 0).ToList();}
+@for (int i = 0; i < secondList.Count(); i++)
+{
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview menu-open">
+            <a href="" class="nav-link active">
+                <i class="nav-icon fa fa-dashboard"></i>
+                <p>
+                    @secondList[i].Name
+                    <i class="right fa fa-angle-left"></i>
+                </p>
+            </a>
+            @{ var thirdList = Model.ToList().Where(m => m.Pid == secondList[i].Id).ToList();}
+            @for (int j = 0; j < thirdList.Count(); j++)
+            {
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="/article/index" target="mainframe" class="nav-link" id="article">
+                            <i class="fa fa-circle-o nav-icon"></i>
+                            <p>@thirdList[j].Name</p>
+                        </a>
+                    </li>
+                </ul>
+            }
+
+                </li>
+            </ul>
+                }
+    <script>
+        //$(document).ready(function () {
+        //    $(".nav - treeview .nav-item #article").click(function () {
+        //        alert("nononyeah");
+        //        $(".nav - treeview .nav-item #article").attr('href', '/article/index'); 
+        //    }) 
+        //});
+
+    </script>

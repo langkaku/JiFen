@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>积分排名</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/xiaowei/demo/css/plug/daterangepicker-bs3.css" rel="stylesheet" />*@
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/bypm.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-migrate.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/bootstrap.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/moment.min.js"></script>
+    @*<script src="~/Content/xiaowei/demo/js/plug/daterangepicker.js"></script>*@
+    @*<script src="~/Content/xiaowei/demo/js/plug/metronic.js"></script>*@
+    @*<script src="~/Content/xiaowei/demo/js/plug/fen.js"></script>*@
+    @*<script src="~/Content/xiaowei/demo/js/plug/rank-hdip.js"></script>*@
+</head>
+<body>
+    <div class="page-padding">
+        <div class="portlet box purple" id="colors" style="border:0;">
+            <div class="portlet-title">
+                <ul class="nav nav-tabs pull-left">
+                    <li class="active" fix="">
+                        <a href="#portlet_tab_1" data-toggle="tab" id="tab1">积分排行</a>
+                    </li>
+                </ul>
+            </div>
+            <input type="hidden" name="FDeptId" id="FDeptId" value="0">
+            <div class="portlet-body">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="FDeptName" style="font-size:16px;line-height: 34px;text-decoration: none;">全行<b class="caret"></b></a>
+                    @*<div class="form-inline pull-right date" style="">
+                            <div class="input-group" id="defaultrange">
+                                <input type="text" class="form-control"  placeholder="请选择日期">
+                            </div>
+                        </div>*@
+                    <ul class="dropdown-menu" id="FDeptList">
+                        <li class="inbox0">
+                            <a href="javascript:;" class="btn" fdeptid="0"><strong>全行</strong></a>
+                            <b></b>
+                        </li>
+                        @using integrating.web.Data
+                        @model  IEnumerable<DD_Dept>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <li class="inbox" +@item.Dep_ID>
+                                    <a href="javascript:;" class="btn" fdeptid=@item.Dep_ID><strong>@item.Name</strong></a>
+                                    <b></b>
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                </div>
+                <br>
+                <div id="FContent">
+                    <table class="table table-bordered table-striped temp-table" fdestemployeeid="4732250577050001">
+                        <thead>
+                            <tr>
+                                <th style="font-size:14px; font-weight:bold; background-color:#eee" width="25%" nowrap="">排名</th>
+                                <th style="font-size:14px; font-weight:bold; background-color:#eee" width="25%" nowrap="">姓名</th>
+                                <th style="font-size:14px; font-weight:bold; background-color:#eee" width="35%" nowrap="">部门</th>
+                                <th style="font-size:14px; font-weight:bold; background-color:#eee" width="15%" nowrap="">积分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Html.Action("getjrrank", "Firstpage")
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("Footer")
+    <script>
+        jQuery(document).ready(function () {
+            Metronic.init(); // init metronic core components
+            Module.init();
+        });
+    </script>
+</body>
+</html>

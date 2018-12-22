@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>积分标准管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="css/plug/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/plug/simple-line-icons.min.css" rel="stylesheet"/>
+    <link href="css/plug/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/plug/uniform.default.min.css" rel="stylesheet"/>
+    <link href="css/plug/bootstrap-fileinput.css" rel="stylesheet"/>
+    <link href="css/plug/select2.css" rel="stylesheet"/>
+    <link href="css/plug/multiple-select20180415.css" rel="stylesheet"/>
+    <link href="css/plug/dataTables.bootstrap.css" rel="stylesheet"/>
+    <link href="css/plug/components.css" rel="stylesheet"/>
+    <link href="css/plug/plugins.css" rel="stylesheet"/>
+    <link href="css/plug/fent1.css" rel="stylesheet"/>
+    <link href="css/jfbzgl.css" rel="stylesheet"/>
+    <script src="js/plug/jquery.min.js"></script>
+    <script src="js/plug/jquery-migrate.min.js"></script>
+    <script src="js/plug/jquery-ui.min.js"></script>
+    <script src="js/plug/bootstrap.min.js"></script>
+    <script src="js/plug/jquery.blockui.min.js"></script>
+    <script src="js/plug/jquery.uniform.min.js"></script>
+    <script src="js/plug/select2.min.js"></script>
+    <script src="js/plug/multiple-select20171217.js"></script>
+    <script src="js/plug/jquery.dataTables.min.js"></script>
+    <script src="js/plug/dataTables.bootstrap.js"></script>
+    <script src="js/plug/fnReloadAjax.js"></script>
+    <script src="js/plug/jquery.validate.min.js"></script>
+    <script src="js/plug/metronic.js"></script>
+    <script src="js/plug/itemManage20180827.js"></script>
+    <script src="js/plug/fen20170505.js"></script>
+    <script src="js/jfbzgl.js"></script>
+</head>
+<body class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-sidebar-closed" style="background:none !important;">
+    <div class="portlet box purple" id="inputDiv" style="display:none">
+        <div class="portlet-title">
+            <div class="caption">
+                <div id="addTitle"><i class="glyphicon glyphicon-plus" style="font-size:16px; margin-right:10px"></i>积分标准-新增</div>
+                <div id="modifyTitle"><i class="glyphicon glyphicon-edit" style="font-size:16px; margin-right:10px"></i>积分标准-编辑</div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form action="#" id="form1" name="form1" class="form-horizontal" novalidate="novalidate">
+                <input type="hidden" name="FItemId">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            类别<span class="required" aria-required="true">
+                                &nbsp;
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FItemTypeId"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-1">&nbsp;</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen1_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-1" id="s2id_autogen1_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-1">   </ul></div></div><select class="form-control select2me select2-offscreen" id="FItemTypeId" name="FItemTypeId" data-placeholder="请选择..." tabindex="-1" title=""></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            标题<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" name="FTitle" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            分数规则<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <div class="radio-list" data-error-container="#form1_membership_error">
+                                <label class="radio-inline">
+                                    <div class="radio" id="uniform-FRule0"><span class="checked"><input type="radio" name="FRule" id="FRule0" value="0" checked=""></span></div>固定分
+                                </label>
+                                <label class="radio-inline">
+                                    <div class="radio" id="uniform-FRule1"><span><input type="radio" name="FRule" id="FRule1" value="1"></span></div>阶梯分
+                                </label>
+                                <label class="radio-inline">
+                                    <div class="radio" id="uniform-FRule2"><span><input type="radio" name="FRule" id="FRule2" value="2"></span></div>计件分
+                                </label>
+                                <label class="radio-inline">
+                                    <div class="radio" id="uniform-FRule3"><span><input type="radio" name="FRule" id="FRule3" value="3"></span></div>不定分
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            <span id="fenTitle">分数</span> <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9" id="stepFenDiv" style="display:none">
+                            <div class="form-group" style="border:1px dashed #999; margin:0px 0px 12px 0px; padding-top:10px; padding-bottom:10px;">
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯一(卓越/严重)</label>
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯二(优秀/警示)</label>
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯三(良好/一般)</label>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen1" id="FFen1" class="form-control">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen2" id="FFen2" class="form-control">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen3" id="FFen3" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <label class="control-label col-md-9" id="uncertainFenDiv" style="display:none; text-align:left; color:red">在审核时由审核人指定分数</label>
+                        <div class="col-md-9" id="fenDiv">
+                            <input type="number" value="" name="FFen" id="FFen" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            具体要求<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <textarea rows="6" class="form-control" name="FContent" id="FContent" placeholder="能够申请这个积分需要做到的具体要求，并且还可以举些详细的例子"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            可见范围
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FShowType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2">全公司人可见</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-2">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FShowType" id="FShowType" tabindex="-1" title="">
+                                <option value="0" selected="">全公司人可见</option>
+                                <option value="1">只有某些部门可见</option>
+                                <option value="2">只有某些人可见</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9" id="deptIdsDiv" style="display:none">
+                            <div class="select2-container select2-container-multi form-control select2me" id="s2id_FDeptIds"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen3" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default" id="s2id_autogen3" placeholder="" style="width: 110%;">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   <li class="select2-no-results">没有找到匹配项</li></ul></div></div><select class="form-control select2me select2-offscreen" multiple="" id="FDeptIds" name="FDeptIds" data-placeholder="请选择" tabindex="-1"></select>
+                        </div>
+                        <div class="col-md-9" id="employeeIdsDiv" style="display:none">
+                            <select style="width:100%" id="FEmployeeIds" multiple="multiple" name="FEmployeeIds"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            申请频次
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FLimitType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-4">不限频次</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen4" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen4_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-4">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FLimitType" id="FLimitType" tabindex="-1" title="">
+                                <option value="0" selected="">不限频次</option>
+                                <option value="1">每日</option>
+                                <option value="2">每周</option>
+                                <option value="3">每月</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9" style="display:none" id="limitCountDiv">
+                            <input type="number" class="spinner-input form-control" maxlength="3" name="FLimitCount" id="FLimitCount" placeholder="限制次数">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            审核人
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FCheckType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-5">申请时灵活选择审核人</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen5" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-5" id="s2id_autogen5"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen5_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-5" id="s2id_autogen5_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-5">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FCheckType" id="FCheckType" tabindex="-1" title="">
+                                <option value="0" selected="">申请时灵活选择审核人</option>
+                                <option value="1">直接上级审核</option>
+                                <option value="2">指定人审核</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9" style="display:none" id="checkEmployeeIdsDiv">
+                            <div class="select2-container select2-container-multi form-control select2me" id="s2id_FCheckEmployeeIds"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen6" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default" id="s2id_autogen6" placeholder="" style="width: 110%;">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   <li class="select2-no-results">没有找到匹配项</li></ul></div></div><select class="form-control select2me select2-offscreen" id="FCheckEmployeeIds" multiple="" name="FCheckEmployeeIds" data-placeholder="请选择" tabindex="-1"></select>
+                        </div>
+                        <div class="col-md-9" style="display:none; font-size:18px;" id="checkEmployeeDescDiv">
+                            需要在人员管理里设定每个人的直接上级是谁
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9">
+                            <button type="button" id="back" class="btn default">返回</button>
+                            <button type="button" id="save" class="btn green">发布</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+    <div class="page-padding" style="padding:25px 20px 10px 20px;">
+        <div class="row" id="listDiv">
+            <div class="col-md-10">
+                <div class="portlet box purple">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-flag"></i>&nbsp;积分标准
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="table1_wrapper" class="dataTables_wrapper">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-12">
+                                            <div class="pull-left">
+                                                <div id="table1_filter" class="dataTables_filter">
+                                                    <label>检索
+                                                        <input type="search" class="form-control input-small input-inline" placeholder="" aria-controls="table1">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9 col-sm-12">
+                                            <div class="buttons pull-right">
+                                                <form id="formFile" name="formFile" method="post" action="uploadFile.do" target="frameFile" enctype="multipart/form-data">
+                                                    <div class="fileinput fileinput-new" style="display:none" data-provides="fileinput">
+                                                        <span class="btn default btn-file">
+                                                            <span>从文件导入标准...</span>
+                                                            <input type="file" id="file" name="file">
+                                                        </span>(导入前先<a href="../common/moban.xls" style="text-decoration:underline">下载模板</a>)
+                                                    </div>
+                                                    <a href="jfbzxz.html" class="btn green add" id="addItem">
+                                                        <i class="fa fa-plus"></i> 添加标准 
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="table1_processing" class="dataTables_processing" style="display: none;">
+                                            <div class="block-spinner-bar">
+                                                <div class="bounce1"></div>
+                                                <div class="bounce2"></div>
+                                                <div class="bounce3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-hover table-bordered dataTable" id="table1" role="grid" aria-describedby="table1_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="table-checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="">
+                                                        <div>
+                                                            <span id="alls">
+                                                                <input type="checkbox" class="group-checkable" data-set="table1 .checkboxes">
+                                                            </span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="序号: activate to sort column ascending" aria-sort="ascending">
+                                                        序号
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="类别: activate to sort column ascending">
+                                                        类别
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="标题: activate to sort column ascending">
+                                                        标题
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="分数: activate to sort column ascending">
+                                                        分数
+                                                    </th>
+                                                    <th class="details-control sorting_disabled" rowspan="1" colspan="1" aria-label="详情">
+                                                        详情
+                                                    </th>
+                                                    <th width="200" class="sorting_disabled" rowspan="1" colspan="1" aria-label="操作">
+                                                        操作
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th rowspan="1" colspan="1"></th>
+                                                    <th rowspan="1" colspan="1">
+                                                    </th>
+                                                    <th rowspan="1" colspan="1">
+                                                        <div class="select2-container form-control select2me" id="s2id_autogen7">
+                                                            <a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   
+                                                                <span class="select2-chosen" id="select2-chosen-8"></span>
+                                                                <abbr class="select2-search-choice-close"></abbr>   
+                                                                <span class="select2-arrow" role="presentation">
+                                                                    <b role="presentation"></b>
+                                                                </span>
+                                                            </a>
+                                                            <label for="s2id_autogen8" class="select2-offscreen"></label>
+                                                            <input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-8" id="s2id_autogen8">
+                                                            <div class="select2-drop select2-display-none select2-with-searchbox">   
+                                                                <div class="select2-search">       
+                                                                    <label for="s2id_autogen8_search" class="select2-offscreen"></label>       
+                                                                    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-8" id="s2id_autogen8_search" placeholder="">   
+                                                                </div>   
+                                                                <ul class="select2-results" role="listbox" id="select2-results-8"></ul>
+                                                            </div>
+                                                        </div>
+                                                        <select class="form-control select2me select2-offscreen" tabindex="-1" title="">
+                                                            <option value=""></option><option value="团队合作">团队合作</option>
+                                                            <option value="客户第一">客户第一</option>
+                                                            <option value="拥抱变化">拥抱变化</option>
+                                                            <option value="敬业">敬业</option>
+                                                            <option value="激情">激情</option>
+                                                            <option value="诚信">诚信</option>
+                                                        </select>
+                                                    </th>
+                                                    <th rowspan="1" colspan="1"><input type="text" class="form-control form-filter"></th>
+                                                    <th rowspan="1" colspan="1"><input type="text" class="form-control form-filter"></th>
+                                                    <th class="details-control" rowspan="1" colspan="1">
+                                                    </th>
+                                                    <th rowspan="1" colspan="1">
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">1</a></td><td>客户第一</td><td>尊重他人，随时随地维护阿里巴巴形象</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="0">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="0">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="0">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">2</a></td><td>客户第一</td><td>微笑面对投诉和受到的委屈，积极主动地在工作中为客户解决问题</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="1">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="1">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="1">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">3</a></td><td>客户第一</td><td>与客户交流过程中，即使不是自己的责任，也不推诿</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="2">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="2">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="2">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">4</a></td><td>客户第一</td><td>站在客户的立场思考问题，在坚持原则的基础上，最终达到客户和公司都满意</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="3">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="3">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="3">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">5</a></td><td>客户第一</td><td>具有超前服务意识，防患于未然</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="4">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="4">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="4">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">6</a></td><td>团队合作</td><td>积极融入团队，乐意接受同事的帮助，配合团队完成工作</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="5">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="5">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="5">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">7</a></td><td>团队合作</td><td>决策前积极发表建设性意见，充分参与团队讨论，决策后，无论个人是否有异议，必须从言行上完全予以支持</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="6">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="6">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="6">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">8</a></td><td>团队合作</td><td>积极主动分享业务知识和经验；主动给予同事必要的帮助；善于利用团队的力量解决问题和困难</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="7">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="7">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="7">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">9</a></td><td>团队合作</td><td>善于和不同类型的同事合作，不将个人喜好带入工作，充分体现“对事不对人”的原则</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="8">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="8">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="8">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">10</a></td><td>团队合作</td><td>有主人翁意识，积极正面地影响团队，改善团队士气和氛围三、拥抱变化</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="9">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="9">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="9">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">11</a></td><td>拥抱变化</td><td>适应公司的日常变化，不抱怨</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="10">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="10">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="10">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">12</a></td><td>拥抱变化</td><td>面对变化，理性对待，充分沟通，诚意配合</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="11">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="11">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="11">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">13</a></td><td>拥抱变化</td><td>对变化产生的困难和挫折，能自我调整，并正面影响和带动同事</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="12">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="12">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="12">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">14</a></td><td>拥抱变化</td><td>在工作有前瞻意识，建立新方法，新思路</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="13">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="13">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="13">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">15</a></td><td>拥抱变化</td><td>创造变化，并带来绩效突破性的提高</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="14">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="14">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="14">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">16</a></td><td>诚信</td><td>诚实正直，表里如一</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="15">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="15">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="15">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">17</a></td><td>诚信</td><td>通过正确的渠道和流程，准确表达自己的观点；表达批评意见的同时能提出相应建议，直言有讳</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="16">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="16">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="16">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">18</a></td><td>诚信</td><td>不传播未经证实的消息，不背后不负责任地议论事和人，并能正面引导，对于任何意见和反馈“有则改之，无则加勉”</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="17">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="17">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="17">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">19</a></td><td>诚信</td><td>勇于承认错误，敢于承担责任，并及时改正</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="18">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="18">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="18">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">20</a></td><td>诚信</td><td>对损害公司利益的不诚信行为正确有效的制止</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="19">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="19">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="19">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">21</a></td><td>激情</td><td>喜欢自己的工作，认同阿里巴巴企业文化</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="20">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="20">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="20">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">22</a></td><td>激情</td><td>热爱阿里巴巴，顾全大局，不计较个人得失</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="21">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="21">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="21">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">23</a></td><td>激情</td><td>以积极乐观的心态面对日常工作，碰到困难和挫折的时候永不放弃，不断自我激励，努力提升业绩</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="22">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="22">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="22">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">24</a></td><td>激情</td><td>始终以乐观主义的精神和必胜的信念，影响并带动同事和团队</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="23">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="23">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="23">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">25</a></td><td>激情</td><td>不断设定更高的目标，今天的最好表现是明天的最低的要求</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="24">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="24">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="24">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">26</a></td><td>敬业</td><td>今天的事不推到明天，上班时间只作与工作有关的事情</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="25">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="25">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="25">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">27</a></td><td>敬业</td><td>遵循必要的工作流程，没有因工作失职而造成的重复错误</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="26">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="26">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="26">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">28</a></td><td>敬业</td><td>持续学习，自我完善，做事情充分体现以结果为导向</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="27">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="27">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="27">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">29</a></td><td>敬业</td><td>能根据轻重缓急来正确安排工作优先级，做正确的事</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="28">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="28">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="28">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">30</a></td><td>敬业</td><td>遵循但不拘泥于流程，化繁为简，以较小的投入获得较大的工作成果</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="29">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="29">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="29">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">31</a></td><td>敬业</td><td>配套员组织配件</td><td>单件3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="30">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="30">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="30">彻底删除</a></td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-12">
+                                            <div class="dataTables_info" id="table1_info" role="status" aria-live="polite">1 至 31 /共 31 行</div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-12">
+                                            <div class="dataTables_paginate paging_full_numbers" id="table1_paginate">
+                                                <ul class="pagination">
+                                                    <li class="paginate_button first disabled" aria-controls="table1" tabindex="0" id="table1_first">
+                                                        <a href="#">首页</a>
+                                                    </li>
+                                                    <li class="paginate_button previous disabled" aria-controls="table1" tabindex="0" id="table1_previous">
+                                                        <a href="#">前一页</a>
+                                                    </li>
+                                                    <li class="paginate_button active" aria-controls="table1" tabindex="0">
+                                                        <a href="#">1</a>
+                                                    </li>
+                                                    <li class="paginate_button next disabled" aria-controls="table1" tabindex="0" id="table1_next">
+                                                        <a href="#">后一页</a>
+                                                    </li>
+                                                    <li class="paginate_button last disabled" aria-controls="table1" tabindex="0" id="table1_last">
+                                                        <a href="#">尾页</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div style="display:none" id="percentDiv">
+                    <a class="btn purple btn-block percent">活动积分占比</a>
+                    <br>
+                </div>
+                <a class="btn purple btn-block type">积分类别管理</a><br>
+                <a class="btn purple btn-block stopManage">已暂停的标准</a><br>
+                <a class="btn purple btn-block" id="zd" target="_blank" href="/templates/reportManage/custom.html?FDb=&amp;FCustomId=195000&amp;TODAY=2018-12-07">积分标准诊断</a><br>
+            </div>
+        </div>
+    </div>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+</body>
+</html>

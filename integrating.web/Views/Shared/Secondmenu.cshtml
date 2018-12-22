@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+@*<link href="~/Content/xiaowei/demo/css/sqjf.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/sqjf.js"></script>*@
+@using integrating.web.Data;
+@model  IEnumerable<JFitem>
+
+@if (Model != null)
+{
+    <i class="fa fa-angle-down"></i>
+    <ul class="second">
+     @foreach (var item in Model)
+        {
+        <li>
+            <a href="#" >@item.desp</a>
+            @*<i class="fa fa-angle-down"></i>*@
+            @Html.Action("GetThirdMenu", "Application", new { id = item.JF_serial })
+        </li>
+        }
+    </ul>
+        }
+  

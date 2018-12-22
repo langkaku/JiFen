@@ -1,0 +1,149 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    @*<link href="css/footer.css" rel="stylesheet" />*@
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/wd.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.rotate.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fen.js"></script>
+    <script src="~/Content/xiaowei/demo/js/wd.js"></script>
+</head>
+<body onpageshow="fixSafari(event)">
+    <div class="alert alert-danger" id="draw" style="margin:0px; display:none">
+    </div>
+    <div id="size" style="display:none">
+        <a class="btn yellow" href="user.html" style="display:none; margin:20px auto; text-align:center" id="back">返回个人中心</a>
+        <div style="width:500px;margin:30px auto 0 auto;text-align:center;position:relative;">
+            <canvas id="canvas" width="500px" height="500px"></canvas>
+            <div class="rotary"><img src="images/z.png" alt=""></div>
+        </div>
+        <br><br>
+    </div>
+    <div class="portlet light" style="padding:0px !important;">
+        <div class="portlet-body" style="padding-bottom:10px">
+            <div id="accordion1" class="panel-group accordion">
+                <div class="portlet light profile-sidebar-portlet">
+                    <div class="profile-userpic">
+                        <img src="~/Content/xiaowei/demo/images/man.png" class="img-responsive" alt="" style="margin-top: 20px; margin-bottom: 20px;"/>
+                        <a id="huibiao"></a>
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            <a href="wdzl.html">程序猿~v~</a>
+                            <br>
+                            <em id="level" style="">
+                                <a href="/templates/common/level.html" target="_blank">
+                                </a>
+                            </em>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" id="content">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle collapsed" href='@Url.Action("Myjf","MyIntegral")'>
+                                <i class="icon-present" style="color:#E87E04;"></i> 我的积分
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in">
+                        <div class="panel-body margin-bottom-0" style="border-bottom:5px solid #C9CACA;background:#f9f9f9;">
+                            <div class="font-blue col-md-4 col-sm-4 col-xs-4 text-left">
+                                <span style="font-size:16px !important;" id="FFen">88076</span><br>
+                                总分
+                            </div>
+                            <div class="font-blue col-md-4 col-sm-4 col-xs-4 text-center">
+                                <span style="font-size:16px !important;" id="FFenCurrMonth">192</span><br>
+                                本月
+                            </div>
+                            <div class="font-blue col-md-4 col-sm-4 col-xs-4 text-right">
+                                <span style="font-size:16px !important;" id="FFenYestoday">0</span><br>
+                                昨日
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle collapsed" id="top" href='@Url.Action("JRRank","Firstpage")'>
+                                <i class="icon-trophy" style="color:#f3c200;"></i> 我的排行
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in">
+                        <div class="panel-body margin-bottom-0" style="border-bottom:5px solid #C9CACA;background:#f9f9f9;">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-center font-purple">
+                                总分排名:<span class="font-lg" id="fenOrder">1</span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-center font-purple">
+                                昨日排名:<span class="font-lg" id="fenYestodayOrder">8</span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-center font-blue">
+                                本月排名:<span class="font-lg" id="fenCurrMonthOrder">1</span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-center font-blue">
+                                部门排名:<span class="font-lg" id="fenDeptOrder">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading welfare">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle collapsed" href='@Url.Action("Index","Audit")'>
+                                <i class="icon-emoticon-smile" style="color:#f2784b"></i> 我的审核
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in welfare">
+                        <div class="panel-body margin-bottom-0" style="border-bottom:5px solid #C9CACA;background:#f9f9f9; text-align:center" id="welfare">
+                            <a href='@Url.Action("Index","Audit")'>审核界面</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+            </div>
+    @Html.Partial("Footer")
+    @*<div data-role="widget" data-widget="nav4" class="nav4">
+        <div id="nav4_ul" class="nav_4">
+            <ul class="footer" style="margin:0px !important;">
+                <li>
+                    <a href="index.html" id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+                </li>
+                <li>
+                    <a href="wd.html" id="userMenu"><i class="fa fa-user"></i><p>我的</p></a>
+                </li>
+                <li>
+                    <a href="sqjf.html" id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+                </li>
+                <li>
+                    <a href="jfgl.html" id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>*@
+</body>
+</html>

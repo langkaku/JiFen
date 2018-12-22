@@ -1,0 +1,400 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>积分标准管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="~/Content/xiaowei/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/uniform.default.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/bootstrap-fileinput.css" rel="stylesheet" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/Content/xiaowei/select2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css">
+    <link href="~/Content/xiaowei/multiple-select20180415.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- BEGIN THEME STYLES -->
+    <link href="~/Content/xiaowei/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/plugins.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/fent1.css" rel="stylesheet" />
+    <style type="text/css">
+        .table-striped tbody tr.active:nth-child(odd) td, .table-striped tbody tr.active:nth-child(even) td {
+            background: #f9f9f9 !important;
+        }
+
+        .portlet {
+            overflow: hidden !important
+        }
+    </style>
+</head>
+<body class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-sidebar-closed" style="background:none !important;">
+    <!-- BEGIN CONTAINER -->
+    <div class="portlet box purple" id="inputDiv" style="">
+        <div class="portlet-title">
+            <div class="caption">
+                <div id="addTitle"><i class="glyphicon glyphicon-plus" style="font-size:16px; margin-right:10px"></i>积分标准-新增</div>
+                <div id="modifyTitle" style="display: none;"><i class="glyphicon glyphicon-edit" style="font-size:16px; margin-right:10px"></i>积分标准-编辑</div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form action="#" id="form1" name="form1" class="form-horizontal" novalidate="novalidate">
+                <input type="hidden" name="FItemId">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            类别<span class="required" aria-required="true">
+                                &nbsp;
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FItemTypeId"><a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-1">请选择...</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen1_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-1" id="s2id_autogen1_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-1">   </ul></div></div>
+                            <select class="form-control select2me select2-offscreen" id="FItemTypeId" name="FItemTypeId" data-placeholder="请选择..." tabindex="-1" title="">
+                                <option value=""></option>
+                                <option value="5422501016530001">客户第一</option>
+                                <option value="5422501137130001">团队合作</option>
+                                <option value="5422501184900001">拥抱变化</option>
+                                <option value="5422501238080001">诚信</option>
+                                <option value="5422501287440001">激情</option>
+                                <option value="5422501343610001">敬业</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            标题<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" name="FTitle" class="form-control" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            分数规则<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <div class="radio-list" data-error-container="#form1_membership_error">
+                               
+                                    <div class="radio" id="uniform-FRule0"><span class=""><input type="radio" name="FRule" id="FRule0" value="0" checked="checked" aria-required="true"></span></div>固定分
+                                
+                            
+                                    <div class="radio" id="uniform-FRule1"><span class=""><input type="radio" name="FRule" id="FRule1" value="1"></span></div>阶梯分
+                              
+                                    <input type="radio" name="name" value="" />
+                                    <div class="radio" id="uniform-FRule2"><span class=""><input type="radio" name="FRule" id="FRule2" value="2"></span></div>计件分
+                                
+                                
+                                    <div class="radio" id="uniform-FRule3"><span class="checked"><input type="radio" name="FRule" id="FRule3" value="3"></span></div>不定分
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            <span id="fenTitle">分数</span> <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9" id="stepFenDiv" style="display: none;">
+                            <div class="form-group" style="border:1px dashed #999; margin:0px 0px 12px 0px; padding-top:10px; padding-bottom:10px;">
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯一(卓越/严重)</label>
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯二(优秀/警示)</label>
+                                <label class="col-md-4 col-sm-4 col-xs-4 control-label">阶梯三(良好/一般)</label>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen1" id="FFen1" class="form-control" aria-required="true">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen2" id="FFen2" class="form-control" aria-required="true">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="number" value="" name="FFen3" id="FFen3" class="form-control" aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+                        <label class="control-label col-md-9" id="uncertainFenDiv" style="display:none; text-align:left; color:red">在审核时由审核人指定分数</label>
+                        <div class="col-md-9" id="fenDiv" style="display: block;">
+                            <input type="number" value="" name="FFen" id="FFen" class="form-control" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            具体要求<span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-9">
+                            <textarea rows="6" class="form-control" name="FContent" id="FContent" placeholder="能够申请这个积分需要做到的具体要求，并且还可以举些详细的例子"></textarea>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="control-label col-md-2">
+                            可见范围
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FShowType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2">全公司人可见</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-2">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FShowType" id="FShowType" tabindex="-1" title="">
+                                <option value="0" selected="">全公司人可见</option>
+                                <option value="1">只有某些部门可见</option>
+                                <option value="2">只有某些人可见</option>
+                            </select>
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <div class="col-md-9" id="deptIdsDiv" style="display:none">
+                            <div class="select2-container select2-container-multi form-control select2me" id="s2id_FDeptIds"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen3" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default" id="s2id_autogen3" placeholder="" style="width: 110%;">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   <li class="select2-no-results">没有找到匹配项</li><li class="select2-no-results">没有找到匹配项</li></ul></div></div><select class="form-control select2me select2-offscreen" multiple="" id="FDeptIds" name="FDeptIds" data-placeholder="请选择" tabindex="-1"><option value="4685714055430001">设计部</option><option value="4706401171880001">文峰店</option><option value="4706401412030001">人事部</option><option value="4718533340750001">东区生保组</option><option value="4718533740130001">财务部</option><option value="4718533832470001">董事会</option><option value="4718533960600001">总经办</option><option value="4732993107720001">科技部</option><option value="4747702122740001">西乡店</option><option value="4965687623560001">海外销售部</option><option value="4976016740830001">深大店</option><option value="4976016740830045">东莞店</option><option value="4976016740830073">财务部1</option><option value="4976016740830075">盐田店</option><option value="4976016740830089">南阳智慧丝</option><option value="4976016740830093">南宁店</option><option value="4976016740830099">行政部</option><option value="4976016740830101">宝安店</option><option value="4976016740830109">研发部</option><option value="4976016740830113">商用工艺科</option><option value="4976016740830115">恒大</option><option value="4976016740830117">城西公交公司</option><option value="4976016740830119">龙骧巴士总公司</option><option value="4976016740830121">城东公交分公司</option></select>
+                        </div>
+                        <div class="col-md-9" id="employeeIdsDiv" style="display:none">
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="control-label col-md-2">
+                            申请频次
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FLimitType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-4">不限频次</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen4" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen4_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-4">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FLimitType" id="FLimitType" tabindex="-1" title="">
+                                <option value="0" selected="">不限频次</option>
+                                <option value="1">每日</option>
+                                <option value="2">每周</option>
+                                <option value="3">每月</option>
+                            </select>
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <div class="col-md-9" style="display:none" id="limitCountDiv">
+                            <input type="number" class="spinner-input form-control" maxlength="3" name="FLimitCount" id="FLimitCount" placeholder="限制次数">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            审核人
+                        </label>
+                        <div class="col-md-9">
+                            <div class="select2-container form-control select2me" id="s2id_FCheckType"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-5">申请时灵活选择审核人</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen5" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-5" id="s2id_autogen5"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen5_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-5" id="s2id_autogen5_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-5">   </ul></div></div><select class="form-control select2me select2-offscreen" data-placeholder="请选择" name="FCheckType" id="FCheckType" tabindex="-1" title="">
+                                <option value="0" selected="">申请时灵活选择审核人</option>
+                                <option value="1">直接上级审核</option>
+                                <option value="2">指定人审核</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9" style="display:none" id="checkEmployeeIdsDiv">
+                            <div class="select2-container select2-container-multi form-control select2me" id="s2id_FCheckEmployeeIds"><ul class="select2-choices">  <li class="select2-search-field">    <label for="s2id_autogen9" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default" id="s2id_autogen9" placeholder="" style="width: 110%;">  </li></ul><div class="select2-drop select2-drop-multi select2-display-none">   <ul class="select2-results">   <li class="select2-no-results">没有找到匹配项</li></ul></div></div><select class="form-control select2me select2-offscreen" id="FCheckEmployeeIds" multiple="" name="FCheckEmployeeIds" data-placeholder="请选择" tabindex="-1">
+                                <option value=""></option>
+                                <optgroup label="科技部"><option value="4732250577050001">测试员</option><option value="4925768434850001">戴三明</option><option value="5318195326780001">邓松山</option><option value="5422495316990001">邸春利</option><option value="5324051327870001">董映彤</option><option value="5318830968250001">冯艳德</option><option value="5029617340540001">高阳</option><option value="5337986337610001">高泽良</option><option value="5335492887670001">贾世友</option><option value="5415904721770001">姜江伟</option><option value="4885391582160001">蒋勇</option><option value="5435615344000001">靳丽</option><option value="4925800824480001">李晓霖</option><option value="5038872096630001">廖川</option><option value="4956814649460001">刘扬秀</option><option value="5434666856050001">刘洋</option><option value="4942957059460001">孙黎明</option><option value="5409559784370001">谭延红</option><option value="5392206984530001">王薇</option><option value="5426868667750001">王先生</option><option value="4923936657580001">向金锋</option><option value="4892037174110001">肖飞</option><option value="5425893584420001">谢江</option><option value="4956801389790001">叶美玲</option><option value="5423381450350001">叶子轻</option><option value="5050580530570001">尹龙云</option><option value="4977007551550001">袁春发</option><option value="5417552605780001">曾箭</option><option value="5325034887220001">张长征</option><option value="5434906982700001">张福兴</option><option value="4956798934480001">张如彬</option><option value="4900753041410001">张文静</option><option value="5355268169950001">赵鹏飞</option></optgroup>
+                                <optgroup label="设计部"><option value="5215958485060001">陈志辉</option><option value="4685744472540002">胡明霞</option><option value="5123781259940001">黄培根</option><option value="5181463735760001">晶晶</option><option value="5160239344560001">柯荣</option><option value="4948125128380001">李小琴</option><option value="5194516158080001">林杨</option><option value="4948121681460001">王兵</option><option value="4918849417400001">王珏</option><option value="4948124077740001">吴建玉</option><option value="5198919290740001">小米</option><option value="4948126077450001">臧丽</option><option value="4686406770010001">曾智军</option><option value="5194511700530001">周洲</option></optgroup>
+                                <optgroup label="文峰店"><option value="5356762341140001">曹庆</option><option value="5026843790310001">常诚</option><option value="5104882874050001">陈洪银</option><option value="5085701427440001">陈清云</option><option value="5427632767060001">程晓龙</option><option value="5429594375480001">崔先生</option><option value="5240169595370001">冯志峰</option><option value="4993049751180001">韩晓东</option><option value="5145495613890001">胡渊</option><option value="5035648988530001">黄靖</option><option value="5401066289270001">李达</option><option value="5367378292900001">李刚</option><option value="5362981750640001">李海艳</option><option value="5156567828800001">李敬国</option><option value="4976685217850001">李菊红</option><option value="5109059139490001">李锐</option><option value="5128017249080001">李泽管</option><option value="5438246977620001">林天</option><option value="5327627411090001">刘康健</option><option value="5309348151430001">刘瑞</option><option value="5371714994130001">刘稀玉</option><option value="5045919884100001">刘贤民</option><option value="4703255206000001">陆建锋</option><option value="5363961377400001">栾晓龙</option><option value="5415948027780001">罗毅</option><option value="5412119795580001">马婕</option><option value="5032976933200001">纳明月</option><option value="5326089064340001">倪日富</option><option value="5007095381350001">庞启军</option><option value="4962154265660001">彭志勇</option><option value="5412139936750001">邵德付</option><option value="5065640720110001">沈咏雪</option><option value="5415017968590001">宋丽钰</option><option value="5353401212040001">孙丽阳</option><option value="5032976140850001">谭宇倩</option><option value="5371647890500001">佟帅</option><option value="5156568472880001">王心玉</option><option value="5018116816030001">吴晖</option><option value="5005443899140001">吴涛</option><option value="5355237757370001">吴珍珍</option><option value="4976687002260001">熊情帆</option><option value="5442482050720001">阳文</option><option value="5025094972690001">杨璐</option><option value="5004558843120001">杨婷</option><option value="5194606424790001">张磊</option><option value="5330077839820001">张楠</option><option value="5389784777060001">张天航</option><option value="4976686078650001">张永利</option><option value="5032975260530001">张永仙</option><option value="4980328901880001">赵坤</option><option value="5035720007600001">赵智</option><option value="5357050193560001">周超鹏</option><option value="5029344738100001">周玲</option><option value="4956815127900001">朱华康</option><option value="5358515380310001">朱胜龙</option><option value="5394176168510001">朱永庆</option><option value="5342138780420001">邹孝阳</option></optgroup>
+                                <optgroup label="人事部"><option value="5081450952390001">陈乐薇</option><option value="4651316921350001">陈乔丽</option><option value="5274777371040001">褚丹丹</option><option value="5434607169770001">窦晶晶</option><option value="5287959758730001">冯世豪</option><option value="5223152556510001">古锦浩</option><option value="5373451454570001">郭秋岑</option><option value="5244460770330001">侯飞鹏</option><option value="5246252411950001">胡亚琳</option><option value="5246470912110001">黄超</option><option value="5253291454560001">廖俊华</option><option value="5288829487840001">林国立</option><option value="5258540079380001">刘林鑫</option><option value="5288837641750001">罗方纬</option><option value="5288836398130001">莫斌</option><option value="5276635096870001">庞守涛</option><option value="5288834352000001">庞玉梅</option><option value="5117656631200001">肖萱</option><option value="5358151762110001">许红涛</option><option value="5367167343500001">杨琦</option><option value="5264552204860001">杨青</option><option value="5245383594400001">杨秋萍</option><option value="5150517963930001">余尚格</option><option value="5369074903200001">张龙</option><option value="5373455754780001">张沫紫</option><option value="5372635137740001">赵航</option><option value="5253179992010001">赵一鸣</option></optgroup>
+                                <optgroup label="东区生保组"><option value="4910186326920001">成保良</option><option value="5082287143330001">黄桥</option><option value="4720111641420001">罗功</option><option value="4979272777900001">齐蕊</option><option value="4945766132540001">泰杉睿</option><option value="4979270409740001">张潇文</option></optgroup>
+                                <optgroup label="财务部"><option value="4720928478430001">郭金生</option><option value="5215956819090001">李修甜</option><option value="5141922149560001">卢佳支</option><option value="4958660256390001">卢燕歌</option><option value="4720123898450001">王涛</option><option value="4720564271740001">徐海量</option><option value="4720122055770001">杨浩</option><option value="4944195562190001">张新长</option><option value="4720938364650001">赵雪</option></optgroup>
+                                <optgroup label="董事会"><option value="5335387405810001">陈险峰</option><option value="5375161417900001">范能操</option><option value="5347548952130001">高聪</option><option value="5299025808040001">耿长健</option><option value="5311267537020001">黄雄</option><option value="4972304946860001">廖艳</option><option value="5275600075390001">魏闽花</option><option value="5175419997510001">吴凯敏</option><option value="5360485991830001">吴文范</option><option value="5161003094220001">熊杰超</option><option value="5412289112570001">许素梅</option><option value="4920556082600001">薛国辉</option><option value="5398546548340001">张贵林</option><option value="5205660248060001">张云魁</option><option value="5343139562960001">赵德军</option></optgroup>
+                                <optgroup label="总经办"><option value="4956967223890001">郭峰岩</option><option value="5439726665360001">卢晓春</option><option value="4945875704420001">雨松</option></optgroup>
+                                <optgroup label="西乡店"><option value="4957692326410001">黄寿星</option><option value="5092677320810001">刘文辉</option><option value="5398237177880001">吴建宋</option><option value="5442692900260001">熊海洋</option></optgroup>
+                                <optgroup label="海外销售部"><option value="5049272113500001">崔老师（山东）</option><option value="5438945803860001">丁文</option><option value="5428572673140001">杜迎君</option><option value="5428574027210001">韩金龙</option><option value="5396778337140001">韩磊</option><option value="5438945186200001">何正伟</option><option value="5428572240320001">李玲</option><option value="5438876926440001">吴晓斌</option><option value="5428571485630001">张菲菲</option><option value="5428573405020001">张腾旺</option><option value="5015587071750001">周宇</option><option value="5040809645000001">朱婉君</option></optgroup>
+                                <optgroup label="深大店"><option value="5282725130270001">安强</option><option value="5101266464720001">陈灿</option><option value="5435560317810001">陈朝</option><option value="5438238679650001">陈凯</option><option value="5266963405990001">陈能辉</option><option value="5114032940360001">陈向新</option><option value="5396678854130001">成伟</option><option value="5151148744210001">戴梦玲</option><option value="5382706833010001">邓伟华</option><option value="5118363758210001">丁琳敏</option><option value="5433846130560001">丁赵琼</option><option value="5100198215830001">董红兵</option><option value="5152386833210001">董乃江</option><option value="5413067148290001">范娟娟</option><option value="5361085552290001">冯浩博</option><option value="5438846896050001">付东成</option><option value="5396775605050001">高平娟</option><option value="5441472624070001">郭姝媛</option><option value="5415813433990001">郭亚峰</option><option value="5269503069040001">何敏榕</option><option value="5429656919320001">何思花</option><option value="5317301607410001">何婷婷</option><option value="5401949365250001">胡婧伟</option><option value="5356114476300001">胡秋花</option><option value="5405224148150001">江欣雅</option><option value="5422529423510001">蒋启波</option><option value="5368318634590001">柯昆</option><option value="5410595112990001">李小云</option><option value="5412065757350001">梁延明</option><option value="5408826061590001">廖小欧</option><option value="5309337021810001">刘莉莉</option><option value="5338891550620001">刘明利</option><option value="5348985134050001">刘纳兰</option><option value="5350943578620001">刘晓娜</option><option value="5300671121270001">刘瑜</option><option value="5360300665160001">刘仲阳</option><option value="5428740720860001">鲁明</option><option value="5411584381730001">马金禄</option><option value="5439118662710001">毛松</option><option value="5315260296720001">孟言</option><option value="5417427643020001">欧阳伟明</option><option value="5397400419290001">潘红霞</option><option value="5410475207060001">潘志光</option><option value="5438301643240001">宋晓旭</option><option value="5438842655530001">谭老师</option><option value="5418125503480001">唐寿荣</option><option value="5428537213550001">田利勇</option><option value="5119547711600001">仝宗魏</option><option value="5155811708770001">王凤霞</option><option value="5373460399210001">王晶晶</option><option value="5095017432550001">王庆亮</option><option value="5103822645760001">王伟</option><option value="5159883973160001">王怡芳</option><option value="5161499589360001">王志良</option><option value="5294765382680001">温欣鼎</option><option value="5126419349660001">文静</option><option value="5350166587960001">吴小姐</option><option value="5420851823690001">向浩森</option><option value="5378604446510001">熊奇</option><option value="5260396181220001">徐伟</option><option value="5197073233830001">徐现力</option><option value="5402758193920001">徐阳</option><option value="5196144956810001">闫全有</option><option value="5258305754870001">杨锡璐</option><option value="5432007677520001">杨瑶</option><option value="5095892722470001">杨总聊城</option><option value="5407823653470001">尹月贞</option><option value="5094200071720001">于明洋</option><option value="5418349543890001">余振锋</option><option value="5405271504110001">张璨</option><option value="5117442163520001">张红长</option><option value="5163475553190001">张瑞雪</option><option value="5264326407790001">张小楠</option><option value="5407792111290001">张宜栋</option><option value="5405189650030001">张义光</option><option value="5111633981070001">赵红旗</option><option value="5405442942970001">赵萍广西</option><option value="5432069239230001">赵云</option><option value="5391517711000001">郑国强</option><option value="5111424779900001">钟家能</option><option value="5402783315620001">周敏</option><option value="5355283613340001">周文俊</option><option value="5411437344140001">周雪静</option></optgroup>
+                                <optgroup label="东莞店"><option value="5426745497070001">阿海</option><option value="5135608999470001">艾军</option><option value="5269617188770001">艾哲</option><option value="5282456127910001">陈夫永</option><option value="5404485441530001">陈佩贤</option><option value="5247992723200001">代勇</option><option value="5438165798960001">宫旭</option><option value="5381833123160001">顾吴健</option><option value="5416716441140001">郭芷宇</option><option value="5411227217160001">黄丽萍</option><option value="5134157750380001">季志勇</option><option value="5355974685490001">姜涛</option><option value="5354292436860001">蒋科峰</option><option value="5409588348400001">康媛媛</option><option value="5136755689270001">兰海燕</option><option value="5438980136180001">黎雪峰</option><option value="5133975474010001">李滨</option><option value="5396776979140001">李江涛</option><option value="5266913419640001">李总广州</option><option value="5397396892350001">梁鹏</option><option value="5401804598080001">林江茵</option><option value="5382039094270001">林敏思</option><option value="5349222503590001">刘晓宇</option><option value="5248835993050001">刘彦福</option><option value="5333482301490001">刘振有</option><option value="5434779191740001">马箐</option><option value="5138163385400001">米永辉</option><option value="5441537525630001">庞喆</option><option value="5421602215300001">曲美西</option><option value="5144265642890001">沈明光</option><option value="5417327601380001">孙国平</option><option value="5426169403510001">孙潘虹</option><option value="5141084850410001">田颖</option><option value="5108931235890001">王红</option><option value="5410416210300001">王潇</option><option value="5139324627140001">王小丹</option><option value="5307535150320001">王志伟</option><option value="5439928586640001">魏文丽</option><option value="5360209451420001">温国豪</option><option value="5132176914890001">向荣</option><option value="5402775107370001">熊金凯</option><option value="5144314549430001">杨华</option><option value="5401981298010001">杨文乐</option><option value="5142769556820001">姚晟</option><option value="5132518164400001">于晓臣</option><option value="5398312974950001">詹心强</option><option value="5140124398140001">张慧</option><option value="5270374876100001">张寿松</option><option value="5143374801940001">张晔</option></optgroup>
+                                <optgroup label="盐田店"><option value="5434703712480001">陈晓静</option><option value="5420926578120001">陈艳</option><option value="5408794456510001">丁秀盈</option><option value="5426786939300001">丁勇辉</option><option value="5215979760540001">董朝阳</option><option value="5382754876420001">范若兰</option><option value="5375897811300001">耿玉伟</option><option value="5247941369920001">韩鸿飞</option><option value="5439156910440001">贺鸿铭</option><option value="5404309055870001">黄梅娟</option><option value="5405455392590001">黄勋洵</option><option value="5416398614310001">纪正</option><option value="5410413706190001">蒋兵</option><option value="5427097449210001">黎丹</option><option value="5407973797600001">李彦文</option><option value="5253966856160001">梁银花</option><option value="5420122271640001">林廷燕</option><option value="5439159232970001">林文玲</option><option value="5417449524920001">林志华</option><option value="5434667792310001">刘畅</option><option value="5402695048720001">刘艳琼</option><option value="5311898702620001">陆震宇</option><option value="5427093767930001">孟宏伟</option><option value="5418185010860001">缪新祥</option><option value="5210194451060001">彭小惠</option><option value="5426861092680001">齐斐</option><option value="5224065364970001">沈婷婷</option><option value="5396501646640001">孙彬文</option><option value="5209379902080001">孙国强</option><option value="5210230457550001">孙志刚</option><option value="5411446322280001">王国栋</option><option value="5283555150090001">王祺</option><option value="5252526840830001">文莉</option><option value="5395632108250001">谢秀玲</option><option value="5429536407740001">杨俊</option><option value="5405350560420001">杨明</option><option value="5178005808010001">张斌</option><option value="5434639586390001">张世元</option><option value="5424211713830001">张霞</option><option value="5438890003800001">张秀平</option><option value="5296480542240001">张艳子</option><option value="5311868616280001">张卓锋</option><option value="5217904002670001">赵丰军</option><option value="5403586411430001">赵萍</option><option value="5380361208090001">周爱峰</option><option value="5247309508430001">周金花</option><option value="5210089957540001">周义鸿</option><option value="5437979014640001">周宗华</option><option value="5337797535760001">朱庆波</option></optgroup>
+                                <optgroup label="南宁店"><option value="5225679060100001">鲍思宇</option><option value="5328281905660001">方聪</option><option value="5340769270910001">郝天超</option><option value="5434530278800001">黄海荣</option><option value="5105420385470001">姜波</option><option value="5200645687330001">宋洪利</option><option value="5362336733830001">孙正正</option><option value="5289883001120001">童颜</option><option value="5162446003580001">魏斌</option><option value="5087390580850001">杨晓冬</option><option value="5252489856530001">赵发明</option><option value="5253138216180001">赵洪洲</option><option value="5300802702810001">朱明坤</option></optgroup>
+                                <optgroup label="研发部"><option value="5090927748020001">a小燕</option><option value="4685714055590001">shopping</option></optgroup>
+                                <optgroup label="恒大"><option value="5410434606750001">高进</option><option value="5427630658430001">林锐</option></optgroup>
+                            </select>
+                        </div>
+                        <div class="col-md-9" style="display:none; font-size:18px;" id="checkEmployeeDescDiv">
+                            需要在人员管理里设定每个人的直接上级是谁
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9">
+                            <button type="button" id="back" class="btn default">返回</button>
+                            <button type="button" id="save" class="btn green">发布</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- END FORM-->
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+    <div class="page-padding" style="padding:25px 20px 10px 20px;">
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row" id="listDiv" style="display: none;">
+            <div class="col-md-10">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box purple">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-flag"></i>&nbsp;积分标准
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="table1_wrapper" class="dataTables_wrapper">
+                                    <div class="row"><div class="col-md-3 col-sm-12"><div class="pull-left"><div id="table1_filter" class="dataTables_filter"><label>检索<input type="search" class="form-control input-small input-inline" placeholder="" aria-controls="table1"></label></div></div></div><div class="col-md-9 col-sm-12"><div class="buttons pull-right"><form id="formFile" name="formFile" method="post" action="uploadFile.do" target="frameFile" enctype="multipart/form-data"><div class="fileinput fileinput-new" style="display:none" data-provides="fileinput"><span class="btn default btn-file"><span>从文件导入标准...</span><input type="file" id="file" name="file"></span>(导入前先<a href="../common/moban.xls" style="text-decoration:underline">下载模板</a>)</div><a class="btn btn-default import" style="display: none;"><i class="fa fa-file"></i> 导入标准... </a><a class="btn btn-default" id="print" style="display: none;">打印标准</a><a class="btn btn-default batch" style="display: none;"> 批量删除 </a><a class="btn green add" id="addItem"><i class="fa fa-plus"></i> 添加标准 </a></form></div></div><div id="table1_processing" class="dataTables_processing" style="display: none;"><div class="block-spinner-bar"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div></div><div class="table-scrollable">
+                                        <table class="table table-striped table-hover table-bordered dataTable" id="table1" role="grid" aria-describedby="table1_info" style="width: 392px;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="table-checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="
+
+								" style="width: 23px;">
+                                                        <div class="checker"><span><input type="checkbox" class="group-checkable" data-set="table1 .checkboxes"></span></div>
+                                                    </th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="
+									 序号
+								: activate to sort column ascending" aria-sort="ascending" style="width: 28px;">
+                                                        序号
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="
+									 类别
+								: activate to sort column ascending" style="width: 28px;">
+                                                        类别
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="
+									 标题
+								: activate to sort column ascending" style="width: 28px;">
+                                                        标题
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="table1" rowspan="1" colspan="1" aria-label="
+									 分数
+								: activate to sort column ascending" style="width: 28px;">
+                                                        分数
+                                                    </th>
+                                                    <th class="details-control sorting_disabled" rowspan="1" colspan="1" aria-label="
+									 详情
+								" style="width: 28px;">
+                                                        详情
+                                                    </th>
+                                                    <th width="200" class="sorting_disabled" rowspan="1" colspan="1" aria-label="
+									 操作
+								" style="width: 71px;">
+                                                        操作
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th rowspan="1" colspan="1"></th>
+                                                    <th rowspan="1" colspan="1">
+                                                    </th>
+                                                    <th rowspan="1" colspan="1"><div class="select2-container form-control select2me" id="s2id_autogen7"><a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-8"></span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen8" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-8" id="s2id_autogen8"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen8_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-8" id="s2id_autogen8_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-8">   </ul></div></div><select class="form-control select2me select2-offscreen" tabindex="-1" title=""><option value=""></option><option value="团队合作">团队合作</option><option value="客户第一">客户第一</option><option value="拥抱变化">拥抱变化</option><option value="敬业">敬业</option><option value="激情">激情</option><option value="诚信">诚信</option></select></th>
+                                                    <th rowspan="1" colspan="1"><input type="text" class="form-control form-filter"></th>
+                                                    <th rowspan="1" colspan="1"><input type="text" class="form-control form-filter"></th>
+                                                    <th class="details-control" rowspan="1" colspan="1">
+                                                    </th>
+                                                    <th rowspan="1" colspan="1">
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">1</a></td><td>客户第一</td><td>尊重他人，随时随地维护阿里巴巴形象</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="0">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="0">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="0">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">2</a></td><td>客户第一</td><td>微笑面对投诉和受到的委屈，积极主动地在工作中为客户解决问题</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="1">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="1">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="1">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">3</a></td><td>客户第一</td><td>与客户交流过程中，即使不是自己的责任，也不推诿</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="2">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="2">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="2">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">4</a></td><td>客户第一</td><td>站在客户的立场思考问题，在坚持原则的基础上，最终达到客户和公司都满意</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="3">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="3">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="3">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">5</a></td><td>客户第一</td><td>具有超前服务意识，防患于未然</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="4">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="4">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="4">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">6</a></td><td>团队合作</td><td>积极融入团队，乐意接受同事的帮助，配合团队完成工作</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="5">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="5">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="5">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">7</a></td><td>团队合作</td><td>决策前积极发表建设性意见，充分参与团队讨论，决策后，无论个人是否有异议，必须从言行上完全予以支持</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="6">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="6">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="6">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">8</a></td><td>团队合作</td><td>积极主动分享业务知识和经验；主动给予同事必要的帮助；善于利用团队的力量解决问题和困难</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="7">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="7">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="7">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">9</a></td><td>团队合作</td><td>善于和不同类型的同事合作，不将个人喜好带入工作，充分体现“对事不对人”的原则</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="8">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="8">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="8">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">10</a></td><td>团队合作</td><td>有主人翁意识，积极正面地影响团队，改善团队士气和氛围三、拥抱变化</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="9">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="9">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="9">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">11</a></td><td>拥抱变化</td><td>适应公司的日常变化，不抱怨</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="10">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="10">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="10">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">12</a></td><td>拥抱变化</td><td>面对变化，理性对待，充分沟通，诚意配合</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="11">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="11">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="11">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">13</a></td><td>拥抱变化</td><td>对变化产生的困难和挫折，能自我调整，并正面影响和带动同事</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="12">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="12">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="12">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">14</a></td><td>拥抱变化</td><td>在工作有前瞻意识，建立新方法，新思路</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="13">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="13">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="13">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">15</a></td><td>拥抱变化</td><td>创造变化，并带来绩效突破性的提高</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="14">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="14">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="14">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">16</a></td><td>诚信</td><td>诚实正直，表里如一</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="15">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="15">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="15">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">17</a></td><td>诚信</td><td>通过正确的渠道和流程，准确表达自己的观点；表达批评意见的同时能提出相应建议，直言有讳</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="16">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="16">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="16">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">18</a></td><td>诚信</td><td>不传播未经证实的消息，不背后不负责任地议论事和人，并能正面引导，对于任何意见和反馈“有则改之，无则加勉”</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="17">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="17">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="17">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">19</a></td><td>诚信</td><td>勇于承认错误，敢于承担责任，并及时改正</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="18">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="18">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="18">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">20</a></td><td>诚信</td><td>对损害公司利益的不诚信行为正确有效的制止</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="19">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="19">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="19">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">21</a></td><td>激情</td><td>喜欢自己的工作，认同阿里巴巴企业文化</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="20">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="20">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="20">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">22</a></td><td>激情</td><td>热爱阿里巴巴，顾全大局，不计较个人得失</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="21">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="21">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="21">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">23</a></td><td>激情</td><td>以积极乐观的心态面对日常工作，碰到困难和挫折的时候永不放弃，不断自我激励，努力提升业绩</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="22">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="22">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="22">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">24</a></td><td>激情</td><td>始终以乐观主义的精神和必胜的信念，影响并带动同事和团队</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="23">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="23">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="23">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">25</a></td><td>激情</td><td>不断设定更高的目标，今天的最好表现是明天的最低的要求</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="24">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="24">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="24">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">26</a></td><td>敬业</td><td>今天的事不推到明天，上班时间只作与工作有关的事情</td><td>1分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="25">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="25">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="25">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">27</a></td><td>敬业</td><td>遵循必要的工作流程，没有因工作失职而造成的重复错误</td><td>2分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="26">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="26">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="26">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">28</a></td><td>敬业</td><td>持续学习，自我完善，做事情充分体现以结果为导向</td><td>3分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="27">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="27">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="27">彻底删除</a></td></tr>
+                                                <tr role="row" class="odd"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">29</a></td><td>敬业</td><td>能根据轻重缓急来正确安排工作优先级，做正确的事</td><td>4分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="28">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="28">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="28">彻底删除</a></td></tr>
+                                                <tr role="row" class="even"><td><div class="checker"><span><input type="checkbox" class="checkboxes"></span></div></td><td class="sorting_1"><a class="edit">30</a></td><td>敬业</td><td>遵循但不拘泥于流程，化繁为简，以较小的投入获得较大的工作成果</td><td>5分</td><td class=" details-control"><span class="row-details row-details-close"></span></td><td><a class="modify btn default btn-xs blue-stripe" href="javascript:;" irow="29">编辑</a><a class="stop btn default btn-xs purple-stripe" href="javascript:;" irow="29">暂停</a><a class="delete btn default btn-xs red-stripe" href="javascript:;" irow="29">彻底删除</a></td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div><div class="row"><div class="col-md-5 col-sm-12"><div class="dataTables_info" id="table1_info" role="status" aria-live="polite">1 至 30 /共 30 行</div></div><div class="col-md-7 col-sm-12"><div class="dataTables_paginate paging_full_numbers" id="table1_paginate"><ul class="pagination"><li class="paginate_button first disabled" aria-controls="table1" tabindex="0" id="table1_first"><a href="#">首页</a></li><li class="paginate_button previous disabled" aria-controls="table1" tabindex="0" id="table1_previous"><a href="#">前一页</a></li><li class="paginate_button active" aria-controls="table1" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="table1" tabindex="0" id="table1_next"><a href="#">后一页</a></li><li class="paginate_button last disabled" aria-controls="table1" tabindex="0" id="table1_last"><a href="#">尾页</a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+            <div class="col-md-2">
+                <div style="display:none" id="percentDiv"><a class="btn purple btn-block percent">活动积分占比</a><br></div>
+                <a class="btn purple btn-block type">积分类别管理</a><br>
+                <a class="btn purple btn-block stopManage">已暂停的标准</a><br>
+                <a class="btn purple btn-block" id="zd" target="_blank" href="/templates/reportManage/custom.html?FDb=&amp;FCustomId=195000&amp;TODAY=2018-12-08">积分标准诊断</a><br>
+                <!-- <h3>参考标准&nbsp;<small>支持导入</small></h3>
+                <div class="row" id="referenceTemp"></div>
+            </div>-->
+            </div>
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <!--[if lt IE 9]>
+    <script src="../../assets/global/plugins/respond.min.js"></script>
+    <script src="../../assets/global/plugins/excanvas.min.js"></script>
+    <![endif]-->
+        <script src="~/Content/xiaowei/jquery.min.js"></script>
+        <script src="~/Content/xiaowei/jquery-migrate.min.js"></script>
+        <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <script src="~/Content/xiaowei/jquery-ui.min.js"></script>
+        <script src="~/Content/xiaowei/bootstrap.min.js"></script>
+        <script src="~/Content/xiaowei/jquery.blockui.min.js"></script>
+        <script src="~/Content/xiaowei/jquery.uniform.min.js"></script>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="~/Content/xiaowei/select2.min.js"></script>
+        <script src="~/Content/xiaowei/bootstrap-select.js"></script>
+        <script src="~/Content/xiaowei/multiple-select20171217.js"></script>
+        <script src="~/Content/xiaowei/jquery.dataTables.min.js"></script>
+        <script src="~/Content/xiaowei/dataTables.bootstrap.js"></script>
+        <script src="~/Content/xiaowei/fnReloadAjax.js"></script>
+        <script src="~/Content/xiaowei/jquery.validate.min.js"></script>
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+        <script src="../common/fen.js?t=20170505"></script>
+        <script src="itemManage.js?t=20180827-2"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Metronic.init(); // init metronic core components
+                Module.init();
+                var host = window.location.host.replace('-', '_');
+                var db = host.substring(0, host.indexOf("."));
+                if (db == 'being' || db == 'h' || db == 'jhsys') {
+                    $('#percentDiv').show();
+                    $('h3').hide();
+                    $('#referenceTemp').hide();
+                }
+                var TODAY = getParam(window.location.href, 'TODAY');
+                if (TODAY == undefined) {
+                    TODAY = $(window.parent.document).find("#TODAY").val();
+                }
+                $('#zd').attr('href', '/templates/reportManage/custom.html?FDb=&FCustomId=195000&TODAY=' + TODAY);
+            });
+        </script>
+
+    </div><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span><span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+</body>
+</html>

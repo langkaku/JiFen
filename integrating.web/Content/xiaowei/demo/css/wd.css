@@ -1,0 +1,162 @@
+ /*进度条*/
+.tip{
+    width: 90%;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 10px;
+    border-top: 1px dotted #ccc;
+    position: relative;
+}
+
+.tip ul{
+    overflow: hidden;
+}
+
+.tip ul li{
+    width: 33.3%;
+    float: left;
+    text-align: left;
+}
+
+.tip ul li span{
+    margin-left: -15px;
+}
+
+.tip ul li:last-child .last{
+  float: right;
+}
+
+.tip ul li:last-child .circle:last-child{
+    right: 0px;
+}
+
+.tip ul li:nth-child(1) span{
+   padding-left: 15px;
+}
+
+.tip ul li .circle{
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    position: absolute;
+    top: -5px;
+}
+
+.tip ul .active span{
+    color: #26a69a;
+}
+
+.tip ul .active .circle{
+   background-color: #26a69a; 
+}
+
+
+
+.rotary {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 216px;
+    height: 216px;
+    margin: -108px 0 0 -108px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.rotary img {
+    width: 100%;
+    height: 100%;
+}
+
+#canvas {
+    transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+
+.user {
+    line-height: 40px;
+}
+
+.user span {
+    display: inline-block;
+}
+
+div.user {
+    height: 40px;
+}
+
+div.uesrInfo {
+    border-bottom: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.userName {
+    min-width: 80px;
+}
+
+div.userOrder {
+    border-bottom: 1px solid #B5B5B6;
+    background-color: #EFEFEF;
+    height: 60px;
+    line-height: 60px;
+}
+
+span {
+    font-size: 14px !important;
+}
+
+i {
+    font-size: 18px !important;
+}
+
+.profile-sidebar-portlet {
+    padding: 0 0 0 0 !important;
+}
+
+.profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 3px;
+}
+
+.profile-usertitle-name {
+    color: #5a7391;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    margin-top: 10px !important;
+}
+
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+a, a:hover, a:active, a:visited {
+    font-size: 14px !important;
+}
+
+#huibiao {
+    display: none;
+    position: absolute;
+    background: url(../../Content/xiaowei/yds.png) no-repeat center center;
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    top: 70px;
+    right: 20%;
+}

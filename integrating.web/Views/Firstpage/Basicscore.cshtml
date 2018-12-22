@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>我的月基础分</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" id="style_components" rel="stylesheet" type="text/css">
+    <link href="~/Content/xiaowei/demo/css/plug/custom.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" type="text/css">
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/highcharts.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/highcharts-more.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/yjcf.js"></script>
+</head>
+<body>
+    <div class="page-padding">
+        <div class="portlet box purple" style="border:0;">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-codepen"></i>&nbsp;我的基础分
+                </div>
+            </div>
+            <div class="portlet-body">
+                <h4>基础分是由系统根据HR系统自动计算并发放的</h4>
+                <div id="chart"></div>
+                <table id="user" class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="">
+                                打卡分
+                            </td>
+                            <td style="width:60%">
+                                <label id="deptid">科技部<span>(50分/日)</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                资格证书分
+                            </td>
+                            <td>
+                                <label id="group">银行从业资格高级<span>(400分)</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                学历分
+                            </td>
+                            <td>
+                                <label id="FEducation">第一学历硕士学位<span>(200分)</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                职称分
+                            </td>
+                            <td>
+                                <label id="hobby">高级会计师<span>(500分/月)</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                工龄分
+                            </td>
+                            <td>
+                                <label id="age">200分</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                值班分
+                            </td>
+                            <td>
+                                <label id="age">200分</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                基础分合计
+                            </td>
+                            <td>
+                                <label id="FFenBase" style="font-weight:bold">650分/月</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@Html.Partial("Footer")
+    </body>
+</html>

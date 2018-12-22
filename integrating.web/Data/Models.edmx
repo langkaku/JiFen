@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IntegratingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="EditTime" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ArticleSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="auditSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="business_id" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="audit_user" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="audit_datetime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="audit_opinion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="audit_type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="businessSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="app_User" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="app_datetime" Type="datetime" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="score" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="score_item" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="state" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="updatetime" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="beizhu" Type="nvarchar" MaxLength="1000" />
+          <Property Name="isUsed" Type="bit" Nullable="false" />
+          <Property Name="unscore" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BussHistorySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="app_user" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="userid" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="app_date" Type="datetime" Nullable="false" />
+          <Property Name="bus_type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="score" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="unscore" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="busitem" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="update_date" Type="datetime" Nullable="false" />
+          <Property Name="isused" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ButtonSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Menu_Id" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Addtime" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Day_statisticsSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_ID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Dep_ID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Day_score" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sta_date" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DD_DeptSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parent_ID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Dep_ID" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DD_UserSet">
+          <Key>
+            <PropertyRef Name="id_prikey1" />
+          </Key>
+          <Property Name="userid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="unionid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="order" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isAdmin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isBoss" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isHide" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isLeader" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="active" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="deptID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="position" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="avatar" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="jobnumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="id_prikey1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dic_dateSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date_coding" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date_des" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IntegratingSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Integrating.dbo.JFitem”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="JFitem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JF_serial" Type="nvarchar" MaxLength="255" />
+          <Property Name="JF_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="score" Type="nvarchar" MaxLength="100" />
+          <Property Name="desp" Type="nvarchar" MaxLength="255" />
+          <Property Name="par_Id" Type="nvarchar" MaxLength="100" />
+          <Property Name="unscore" Type="nvarchar" MaxLength="100" />
+          <Property Name="ismul" Type="nvarchar" MaxLength="255" />
+          <Property Name="exitmultp" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MenuSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Menu_group" Type="nvarchar" MaxLength="100" />
+          <Property Name="Menu_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Menu_Link" Type="nvarchar" MaxLength="100" />
+          <Property Name="Menu_icon" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="mms_ZEmployee">
+          <Key>
+            <PropertyRef Name="ZEmployee_ID" />
+          </Key>
+          <Property Name="ZEmployee_ID" Type="int" Nullable="false" />
+          <Property Name="ZEmployee_Num" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Organization" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Birthday" Type="datetime" />
+          <Property Name="ZEmployee_JiGuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_MingZhu" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_DiYiXueLi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_DiYiXueWei" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_DiYiXueXiao" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_ZhuiGaoXueLi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_BestSchool" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_BestZhuanYe" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_HealthStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_HunYingZhuangKuang" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_PeiOuXingMing" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_PeiOuGongZhuoDanWei" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_PeiOuDianHua" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_CardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_CardNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_HuJi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_OldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_JoinWorkDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_JoinBankDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_ZiNvXingMing" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_SheBaoZhangHao" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_ShiFouShiYongRenYuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_GDPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_Adress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_CancelDate" Type="datetime" />
+          <Property Name="ZEmployee_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_GeRenAiHao" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZEmployee_ZiNvZhuangKuang" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_Memo2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_GongZhuoGangWei" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_XingZhengZhiWu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_RengZhiShiJian" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ChuShengDi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_Memo7" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_RengGangShiJian" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhiChengLeiBie" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhiChengJiBie" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_OrganizationNum" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhuiGaoXueLiXueXiao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhuiGaoXueLiZhuanYe" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhongFengLei" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_HeTongLeiXing" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ShiFouLianSheShengPi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhengZhiMianMao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_YingHangCongYeZiGeZhengKeMu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_LiCaiGuiHuaShi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_XiaoHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_RuDangShiJian" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZhengQuanChongYeZhiGe" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_QiTaChongYeZiGe" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_ZiNvGeShu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_RenYuanXingZhengLeiXing" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_NianDuKaoHeDeFeng" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_XueXiJingLi" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_GongZhuoJingLi" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_JangChengXingXi" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_ChiYouGuJing" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZEmployee_TiaoDang" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_ZhuGang" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_JianGang" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_GuiYuanNum" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo32" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo33" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo34" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo35" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo36" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo37" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo38" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo39" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo40" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo41" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo42" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo43" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo44" Type="nvarchar" MaxLength="500" />
+          <Property Name="ZEmployee_Memo45" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Role_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Id" Type="int" Nullable="false" />
+          <Property Name="Menu_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Addtime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="bakup" Type="nchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="UsersSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Userid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IntegratingModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleSet" EntityType="Self.ArticleSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="auditSet" EntityType="Self.auditSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="businessSet" EntityType="Self.businessSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BussHistorySet" EntityType="Self.BussHistorySet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ButtonSet" EntityType="Self.ButtonSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Day_statisticsSet" EntityType="Self.Day_statisticsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DD_DeptSet" EntityType="Self.DD_DeptSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DD_UserSet" EntityType="Self.DD_UserSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dic_dateSet" EntityType="Self.dic_dateSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IntegratingSet" EntityType="Self.IntegratingSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuSet" EntityType="Self.MenuSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mms_ZEmployee" EntityType="Self.mms_ZEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role_Menu" EntityType="Self.Role_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleSet" EntityType="Self.RoleSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersSet" EntityType="Self.UsersSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JFitem" EntityType="Self.JFitem" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [JFitem].[id] AS [id], 
+    [JFitem].[JF_serial] AS [JF_serial], 
+    [JFitem].[JF_name] AS [JF_name], 
+    [JFitem].[score] AS [score], 
+    [JFitem].[desp] AS [desp], 
+    [JFitem].[par_Id] AS [par_Id], 
+    [JFitem].[unscore] AS [unscore], 
+    [JFitem].[ismul] AS [ismul], 
+    [JFitem].[exitmultp] AS [exitmultp]
+    FROM [dbo].[JFitem] AS [JFitem]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IntegratingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EditTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IntegratingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="ArticleSet" EntityType="IntegratingModel.Article" />
+          <EntitySet Name="MenuSet" EntityType="IntegratingModel.Menu" />
+          <EntitySet Name="ButtonSet" EntityType="IntegratingModel.Button" />
+          <EntitySet Name="RoleSet" EntityType="IntegratingModel.Role" />
+          <EntitySet Name="UsersSet" EntityType="IntegratingModel.Users" />
+          <EntitySet Name="DD_DeptSet" EntityType="IntegratingModel.DD_Dept" />
+          <EntitySet Name="DD_UserSet" EntityType="IntegratingModel.DD_User" />
+          <EntitySet Name="businessSet" EntityType="IntegratingModel.business" />
+          <EntitySet Name="auditSet" EntityType="IntegratingModel.audit" />
+          <EntitySet Name="dic_dateSet" EntityType="IntegratingModel.dic_date" />
+          <EntitySet Name="Day_statisticsSet" EntityType="IntegratingModel.Day_statistics" />
+          <EntitySet Name="IntegratingSet" EntityType="IntegratingModel.IntegratingSet" />
+          <EntitySet Name="C__MigrationHistory" EntityType="IntegratingModel.C__MigrationHistory" />
+          <EntitySet Name="JFitem" EntityType="IntegratingModel.JFitem" />
+          <EntitySet Name="BussHistorySet" EntityType="IntegratingModel.BussHistory" />
+          <EntitySet Name="mms_ZEmployee" EntityType="IntegratingModel.mms_ZEmployee" />
+          <EntitySet Name="Role_Menu" EntityType="IntegratingModel.Role_Menu" />
+        </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Menu_Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Menu_Link" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_group" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Menu_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Button">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Menu_Id" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Addtime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Addtime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="bakup" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Userid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DD_Dept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parent_ID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Dep_ID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="DD_User">
+          <Key>
+            <PropertyRef Name="id_prikey1" />
+          </Key>
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="unionid" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="order" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="isAdmin" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isBoss" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isHide" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isLeader" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="active" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="deptID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="position" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="avatar" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="jobnumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="id_prikey1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="business">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="app_User" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="app_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="score" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="score_item" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="updatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="beizhu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="isUsed" Type="Boolean" Nullable="false" />
+          <Property Name="unscore" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="audit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="business_id" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="audit_user" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="audit_datetime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="audit_opinion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="audit_type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="dic_date">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="date_coding" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="date_des" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Day_statistics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_ID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Dep_ID" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Day_score" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sta_date" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="IntegratingSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="JFitem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JF_serial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="JF_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="score" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="desp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="par_Id" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="unscore" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ismul" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="exitmultp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BussHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="app_user" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="app_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bus_type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="score" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="unscore" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="busitem" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="update_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isused" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mms_ZEmployee">
+          <Key>
+            <PropertyRef Name="ZEmployee_ID" />
+          </Key>
+          <Property Name="ZEmployee_ID" Type="Int32" Nullable="false" />
+          <Property Name="ZEmployee_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Organization" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Birthday" Type="DateTime" Precision="3" />
+          <Property Name="ZEmployee_JiGuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_MingZhu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_DiYiXueLi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_DiYiXueWei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_DiYiXueXiao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhuiGaoXueLi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_BestSchool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_BestZhuanYe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_HealthStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_HunYingZhuangKuang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_PeiOuXingMing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_PeiOuGongZhuoDanWei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_PeiOuDianHua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_CardType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_CardNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_HuJi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_OldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_JoinWorkDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_JoinBankDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZiNvXingMing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_SheBaoZhangHao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ShiFouShiYongRenYuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_GDPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="ZEmployee_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_GeRenAiHao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZiNvZhuangKuang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_GongZhuoGangWei" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_XingZhengZhiWu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_RengZhiShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ChuShengDi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_RengGangShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhiChengLeiBie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhiChengJiBie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_OrganizationNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhuiGaoXueLiXueXiao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhuiGaoXueLiZhuanYe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhongFengLei" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_HeTongLeiXing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ShiFouLianSheShengPi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhengZhiMianMao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_YingHangCongYeZiGeZhengKeMu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_LiCaiGuiHuaShi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_XiaoHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_RuDangShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhengQuanChongYeZhiGe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_QiTaChongYeZiGe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZiNvGeShu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_RenYuanXingZhengLeiXing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_NianDuKaoHeDeFeng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_XueXiJingLi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_GongZhuoJingLi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_JangChengXingXi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ChiYouGuJing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_TiaoDang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_ZhuGang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_JianGang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_GuiYuanNum" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo32" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo33" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo34" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo35" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo36" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo37" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo38" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo39" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo40" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo41" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo42" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo43" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo44" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ZEmployee_Memo45" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Role_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Id" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IntegratingModelStoreContainer" CdmEntityContainer="IntegratingEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Admins)">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Article)">
+        <MappingFragment StoreEntitySet="ArticleSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Menu)">
+        <MappingFragment StoreEntitySet="MenuSet">
+          <ScalarProperty Name="Menu_icon" ColumnName="Menu_icon" />
+                <ScalarProperty Name="Menu_group" ColumnName="Menu_group" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_Link" ColumnName="Menu_Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ButtonSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Button)">
+        <MappingFragment StoreEntitySet="ButtonSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+          <ScalarProperty Name="Addtime" ColumnName="Addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Role)">
+        <MappingFragment StoreEntitySet="RoleSet">
+          <ScalarProperty Name="bakup" ColumnName="bakup" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Addtime" ColumnName="Addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Users)">
+        <MappingFragment StoreEntitySet="UsersSet">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DD_DeptSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.DD_Dept)">
+        <MappingFragment StoreEntitySet="DD_DeptSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DD_UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.DD_User)">
+        <MappingFragment StoreEntitySet="DD_UserSet">
+          <ScalarProperty Name="id_prikey1" ColumnName="id_prikey1" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="unionid" ColumnName="unionid" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="isBoss" ColumnName="isBoss" />
+          <ScalarProperty Name="isHide" ColumnName="isHide" />
+          <ScalarProperty Name="isLeader" ColumnName="isLeader" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="deptID" ColumnName="deptID" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="jobnumber" ColumnName="jobnumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="businessSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.business)">
+        <MappingFragment StoreEntitySet="businessSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="app_User" ColumnName="app_User" />
+          <ScalarProperty Name="app_datetime" ColumnName="app_datetime" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="score_item" ColumnName="score_item" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="beizhu" ColumnName="beizhu" />
+          <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+          <ScalarProperty Name="unscore" ColumnName="unscore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auditSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.audit)">
+        <MappingFragment StoreEntitySet="auditSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="business_id" ColumnName="business_id" />
+          <ScalarProperty Name="audit_user" ColumnName="audit_user" />
+          <ScalarProperty Name="audit_datetime" ColumnName="audit_datetime" />
+          <ScalarProperty Name="audit_opinion" ColumnName="audit_opinion" />
+          <ScalarProperty Name="audit_type" ColumnName="audit_type" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dic_dateSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.dic_date)">
+        <MappingFragment StoreEntitySet="dic_dateSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="date_coding" ColumnName="date_coding" />
+          <ScalarProperty Name="date_des" ColumnName="date_des" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Day_statisticsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.Day_statistics)">
+        <MappingFragment StoreEntitySet="Day_statisticsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+          <ScalarProperty Name="Day_score" ColumnName="Day_score" />
+          <ScalarProperty Name="sta_date" ColumnName="sta_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegratingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.IntegratingSet)">
+        <MappingFragment StoreEntitySet="IntegratingSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.C__MigrationHistory)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BussHistorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.BussHistory)">
+        <MappingFragment StoreEntitySet="BussHistorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="app_user" ColumnName="app_user" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="app_date" ColumnName="app_date" />
+          <ScalarProperty Name="bus_type" ColumnName="bus_type" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="unscore" ColumnName="unscore" />
+          <ScalarProperty Name="busitem" ColumnName="busitem" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="isused" ColumnName="isused" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="mms_ZEmployee">
+            <EntityTypeMapping TypeName="IntegratingModel.mms_ZEmployee">
+              <MappingFragment StoreEntitySet="mms_ZEmployee">
+                <ScalarProperty Name="ZEmployee_Memo45" ColumnName="ZEmployee_Memo45" />
+                <ScalarProperty Name="ZEmployee_Memo44" ColumnName="ZEmployee_Memo44" />
+                <ScalarProperty Name="ZEmployee_Memo43" ColumnName="ZEmployee_Memo43" />
+                <ScalarProperty Name="ZEmployee_Memo42" ColumnName="ZEmployee_Memo42" />
+                <ScalarProperty Name="ZEmployee_Memo41" ColumnName="ZEmployee_Memo41" />
+                <ScalarProperty Name="ZEmployee_Memo40" ColumnName="ZEmployee_Memo40" />
+                <ScalarProperty Name="ZEmployee_Memo39" ColumnName="ZEmployee_Memo39" />
+                <ScalarProperty Name="ZEmployee_Memo38" ColumnName="ZEmployee_Memo38" />
+                <ScalarProperty Name="ZEmployee_Memo37" ColumnName="ZEmployee_Memo37" />
+                <ScalarProperty Name="ZEmployee_Memo36" ColumnName="ZEmployee_Memo36" />
+                <ScalarProperty Name="ZEmployee_Memo35" ColumnName="ZEmployee_Memo35" />
+                <ScalarProperty Name="ZEmployee_Memo34" ColumnName="ZEmployee_Memo34" />
+                <ScalarProperty Name="ZEmployee_Memo33" ColumnName="ZEmployee_Memo33" />
+                <ScalarProperty Name="ZEmployee_Memo32" ColumnName="ZEmployee_Memo32" />
+                <ScalarProperty Name="ZEmployee_GuiYuanNum" ColumnName="ZEmployee_GuiYuanNum" />
+                <ScalarProperty Name="ZEmployee_JianGang" ColumnName="ZEmployee_JianGang" />
+                <ScalarProperty Name="ZEmployee_ZhuGang" ColumnName="ZEmployee_ZhuGang" />
+                <ScalarProperty Name="ZEmployee_TiaoDang" ColumnName="ZEmployee_TiaoDang" />
+                <ScalarProperty Name="ZEmployee_ChiYouGuJing" ColumnName="ZEmployee_ChiYouGuJing" />
+                <ScalarProperty Name="ZEmployee_JangChengXingXi" ColumnName="ZEmployee_JangChengXingXi" />
+                <ScalarProperty Name="ZEmployee_GongZhuoJingLi" ColumnName="ZEmployee_GongZhuoJingLi" />
+                <ScalarProperty Name="ZEmployee_XueXiJingLi" ColumnName="ZEmployee_XueXiJingLi" />
+                <ScalarProperty Name="ZEmployee_NianDuKaoHeDeFeng" ColumnName="ZEmployee_NianDuKaoHeDeFeng" />
+                <ScalarProperty Name="ZEmployee_RenYuanXingZhengLeiXing" ColumnName="ZEmployee_RenYuanXingZhengLeiXing" />
+                <ScalarProperty Name="ZEmployee_ZiNvGeShu" ColumnName="ZEmployee_ZiNvGeShu" />
+                <ScalarProperty Name="ZEmployee_QiTaChongYeZiGe" ColumnName="ZEmployee_QiTaChongYeZiGe" />
+                <ScalarProperty Name="ZEmployee_ZhengQuanChongYeZhiGe" ColumnName="ZEmployee_ZhengQuanChongYeZhiGe" />
+                <ScalarProperty Name="ZEmployee_RuDangShiJian" ColumnName="ZEmployee_RuDangShiJian" />
+                <ScalarProperty Name="ZEmployee_XiaoHao" ColumnName="ZEmployee_XiaoHao" />
+                <ScalarProperty Name="ZEmployee_LiCaiGuiHuaShi" ColumnName="ZEmployee_LiCaiGuiHuaShi" />
+                <ScalarProperty Name="ZEmployee_YingHangCongYeZiGeZhengKeMu" ColumnName="ZEmployee_YingHangCongYeZiGeZhengKeMu" />
+                <ScalarProperty Name="ZEmployee_ZhengZhiMianMao" ColumnName="ZEmployee_ZhengZhiMianMao" />
+                <ScalarProperty Name="ZEmployee_ShiFouLianSheShengPi" ColumnName="ZEmployee_ShiFouLianSheShengPi" />
+                <ScalarProperty Name="ZEmployee_HeTongLeiXing" ColumnName="ZEmployee_HeTongLeiXing" />
+                <ScalarProperty Name="ZEmployee_ZhongFengLei" ColumnName="ZEmployee_ZhongFengLei" />
+                <ScalarProperty Name="ZEmployee_ZhuiGaoXueLiZhuanYe" ColumnName="ZEmployee_ZhuiGaoXueLiZhuanYe" />
+                <ScalarProperty Name="ZEmployee_ZhuiGaoXueLiXueXiao" ColumnName="ZEmployee_ZhuiGaoXueLiXueXiao" />
+                <ScalarProperty Name="ZEmployee_OrganizationNum" ColumnName="ZEmployee_OrganizationNum" />
+                <ScalarProperty Name="ZEmployee_ZhiChengJiBie" ColumnName="ZEmployee_ZhiChengJiBie" />
+                <ScalarProperty Name="ZEmployee_ZhiChengLeiBie" ColumnName="ZEmployee_ZhiChengLeiBie" />
+                <ScalarProperty Name="ZEmployee_RengGangShiJian" ColumnName="ZEmployee_RengGangShiJian" />
+                <ScalarProperty Name="ZEmployee_Memo7" ColumnName="ZEmployee_Memo7" />
+                <ScalarProperty Name="ZEmployee_ChuShengDi" ColumnName="ZEmployee_ChuShengDi" />
+                <ScalarProperty Name="ZEmployee_RengZhiShiJian" ColumnName="ZEmployee_RengZhiShiJian" />
+                <ScalarProperty Name="ZEmployee_XingZhengZhiWu" ColumnName="ZEmployee_XingZhengZhiWu" />
+                <ScalarProperty Name="ZEmployee_GongZhuoGangWei" ColumnName="ZEmployee_GongZhuoGangWei" />
+                <ScalarProperty Name="ZEmployee_Memo2" ColumnName="ZEmployee_Memo2" />
+                <ScalarProperty Name="ZEmployee_ZiNvZhuangKuang" ColumnName="ZEmployee_ZiNvZhuangKuang" />
+                <ScalarProperty Name="ZEmployee_GeRenAiHao" ColumnName="ZEmployee_GeRenAiHao" />
+                <ScalarProperty Name="ZEmployee_Type" ColumnName="ZEmployee_Type" />
+                <ScalarProperty Name="ZEmployee_CancelDate" ColumnName="ZEmployee_CancelDate" />
+                <ScalarProperty Name="ZEmployee_Adress" ColumnName="ZEmployee_Adress" />
+                <ScalarProperty Name="ZEmployee_GDPhone" ColumnName="ZEmployee_GDPhone" />
+                <ScalarProperty Name="ZEmployee_Phone" ColumnName="ZEmployee_Phone" />
+                <ScalarProperty Name="ZEmployee_ShiFouShiYongRenYuan" ColumnName="ZEmployee_ShiFouShiYongRenYuan" />
+                <ScalarProperty Name="ZEmployee_SheBaoZhangHao" ColumnName="ZEmployee_SheBaoZhangHao" />
+                <ScalarProperty Name="ZEmployee_ZiNvXingMing" ColumnName="ZEmployee_ZiNvXingMing" />
+                <ScalarProperty Name="ZEmployee_JoinBankDate" ColumnName="ZEmployee_JoinBankDate" />
+                <ScalarProperty Name="ZEmployee_JoinWorkDate" ColumnName="ZEmployee_JoinWorkDate" />
+                <ScalarProperty Name="ZEmployee_OldName" ColumnName="ZEmployee_OldName" />
+                <ScalarProperty Name="ZEmployee_HuJi" ColumnName="ZEmployee_HuJi" />
+                <ScalarProperty Name="ZEmployee_CardNum" ColumnName="ZEmployee_CardNum" />
+                <ScalarProperty Name="ZEmployee_CardType" ColumnName="ZEmployee_CardType" />
+                <ScalarProperty Name="ZEmployee_PeiOuDianHua" ColumnName="ZEmployee_PeiOuDianHua" />
+                <ScalarProperty Name="ZEmployee_PeiOuGongZhuoDanWei" ColumnName="ZEmployee_PeiOuGongZhuoDanWei" />
+                <ScalarProperty Name="ZEmployee_PeiOuXingMing" ColumnName="ZEmployee_PeiOuXingMing" />
+                <ScalarProperty Name="ZEmployee_HunYingZhuangKuang" ColumnName="ZEmployee_HunYingZhuangKuang" />
+                <ScalarProperty Name="ZEmployee_HealthStatus" ColumnName="ZEmployee_HealthStatus" />
+                <ScalarProperty Name="ZEmployee_BestZhuanYe" ColumnName="ZEmployee_BestZhuanYe" />
+                <ScalarProperty Name="ZEmployee_BestSchool" ColumnName="ZEmployee_BestSchool" />
+                <ScalarProperty Name="ZEmployee_ZhuiGaoXueLi" ColumnName="ZEmployee_ZhuiGaoXueLi" />
+                <ScalarProperty Name="ZEmployee_DiYiXueXiao" ColumnName="ZEmployee_DiYiXueXiao" />
+                <ScalarProperty Name="ZEmployee_DiYiXueWei" ColumnName="ZEmployee_DiYiXueWei" />
+                <ScalarProperty Name="ZEmployee_DiYiXueLi" ColumnName="ZEmployee_DiYiXueLi" />
+                <ScalarProperty Name="ZEmployee_MingZhu" ColumnName="ZEmployee_MingZhu" />
+                <ScalarProperty Name="ZEmployee_JiGuan" ColumnName="ZEmployee_JiGuan" />
+                <ScalarProperty Name="ZEmployee_Birthday" ColumnName="ZEmployee_Birthday" />
+                <ScalarProperty Name="ZEmployee_Sex" ColumnName="ZEmployee_Sex" />
+                <ScalarProperty Name="ZEmployee_Status" ColumnName="ZEmployee_Status" />
+                <ScalarProperty Name="ZEmployee_Department" ColumnName="ZEmployee_Department" />
+                <ScalarProperty Name="ZEmployee_Organization" ColumnName="ZEmployee_Organization" />
+                <ScalarProperty Name="ZEmployee_Name" ColumnName="ZEmployee_Name" />
+                <ScalarProperty Name="ZEmployee_Num" ColumnName="ZEmployee_Num" />
+                <ScalarProperty Name="ZEmployee_ID" ColumnName="ZEmployee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role_Menu">
+            <EntityTypeMapping TypeName="IntegratingModel.Role_Menu">
+              <MappingFragment StoreEntitySet="Role_Menu">
+                <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JFitem">
+            <EntityTypeMapping TypeName="IsTypeOf(IntegratingModel.JFitem)">
+              <MappingFragment StoreEntitySet="JFitem">
+                <ScalarProperty Name="unscore" ColumnName="unscore" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="exitmultp" ColumnName="exitmultp" />
+                <ScalarProperty Name="ismul" ColumnName="ismul" />
+                <ScalarProperty Name="par_Id" ColumnName="par_Id" />
+                <ScalarProperty Name="desp" ColumnName="desp" />
+                <ScalarProperty Name="JF_name" ColumnName="JF_name" />
+                <ScalarProperty Name="JF_serial" ColumnName="JF_serial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,466 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>申请积分</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/multiple-select.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/plugins.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen20181205.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/application.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/sqjf.css" rel="stylesheet" />
+    <link href="~/Content/uploadify3.2/uploadify.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-migrate.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-ui.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/bootstrap.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.blockui.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/multiple-select-hdip.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.validate.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/metronic.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/dingtalk.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jweixin-1.2.0.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fen.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fen20170309.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fenOther-hdip.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/ydui.js"></script>
+    <script src="~/Content/xiaowei/demo/js/sqjf.js"></script>
+    <script src="~/Content/uploadify3.2/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="https://g.alicdn.com/ilw/ding/0.9.2/scripts/dingtalk.js"></script>
+    <script src="~/Content/app.js"></script>
+    <style>
+        /*申请*/
+        #attach {
+            position: relative;
+        }
+
+            #attach input {
+                width: 100%;
+                z-index: 999;
+            }
+
+        #i-check {
+            width: 50px !important;
+            color: #fff;
+            background-color: #1BBC9B;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .box {
+            padding-left: 10px !important;
+            padding-right: 55px;
+        }
+
+        .applybtn {
+            width: 50px;
+            position: absolute;
+            top: 0;
+            right: 15px;
+        }
+    </style>
+    @*<script src="~/Content/xiaowei/demo/js/sqjf.js"></script>*@
+</head>
+<body style="padding-bottom:20px !important">
+    <div class="row">
+        <div class="portlet box purple" style="border:0;">
+            <div class="portlet-title">
+                <ul class="nav nav-tabs pull-left" id="fenApplyTab">
+                    <li class="dropdown active" id="dropdown" style="list-style-type:none;">
+                        <a href="javascript:;" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            ①选择类别 <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu first" role="menu" aria-labelledby="myTabDrop1" id="myDrop">
+                            <li class="active">
+                                <a href='@Url.Action("Index","Appliaction")' tabindex="-1" data-toggle="tab" id="allitem" aria-expanded="true">全部标准</a>
+                                @*<i class="fa fa-angle-down"></i>*@
+                                @Html.Action("GetMenu", "Application")
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="applyTab">
+                        <a href="#portlet_tab_apply" data-toggle="tab" id="applyA">
+                            ②填写申请
+                        </a>
+                    </li>
+                    <li id="applyResult">
+                        <a href="#portlet_tab_list" data-toggle="tab" id="listA">
+                            ③申请完成
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content" id="content">
+                    @*<div id="search">
+                            <div class="input-group" style="width:93% !important; margin:0px auto; padding-top:20px; padding-bottom:20px;">
+                                <input type="text" class="form-control" name="key" id="key" placeholder="">
+                                <span class="input-group-btn">
+                                    <button class="btn green" id="go">申请</button>
+                                </span>
+                            </div>
+                        </div>*@
+                    <div class="tab-pane active in" id="all" style="padding-bottom: 30px;"  >
+
+                    </div>
+                    <div class="tab-pane" id="portlet_tab_apply">
+                        <form action=@Url.Action("SubmitForm","Application") method="POST" runat="server"  class="form-horizontal" name="form1" id="form1" novalidate="novalidate" enctype="multipart/form-data">
+                            <input type="hidden" name="FItemId" id="FItemId" value="0">
+                            <input type="hidden" name="FRule" id="FRule" value="">
+                            <br>
+                            <div class="form-body" style="overflow:hidden;">
+                                <div class="form-group">
+                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">积分事项</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input type="text" value="" name="FTitle" id="FTitle" class="form-control ui-autocomplete-input" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="fenInput">
+                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">申请分数</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input type="number" value="" name="FFen" id="FFen" class="form-control" readonly="">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="fenStep" style="display:none">
+                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">申请分数</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <input type="text" value="" class="form-control" name="FScore" readonly="">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display:none" id="fenTip">
+                                    <label class="col-md-12 col-sm-12 col-xs-12 control-label font-red">标准之外的申请,分数由审核人在审核时指定</label>
+                                </div>
+                                <div class="form-group countable" style="background-color:#efefef; border:1px dashed #999; margin:0px 0px 12px 0px; padding-top:10px; padding-bottom:10px; display:none">
+                                    <label class="col-md-4 col-sm-4 col-xs-4 control-label">单件分数</label>
+                                    <label class="col-md-4 col-sm-4 col-xs-4 control-label">完成数量</label>
+                                    <label class="col-md-4 col-sm-4 col-xs-4 control-label">申请分数</label>
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <input class="form-control" type="text" value="" name="FBaseFen" id="FBaseFen" readonly="" style="font-size:24px;">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <input type="number" value="" name="FCount" id="FCount" class="form-control" style="font-size:24px;">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <input class="form-control" type="text" value="" name="FFen" id="FFen2" readonly="" style="font-size:24px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">@@奖扣对象</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <textarea rows="1" class="form-control box" name="FContent" id="txtuser" placeholder="" readonly="readonly"></textarea>
+                                        <button type="button" class="btn green-meadow btn-block applybtn" id="selectuser">申请</button>
+                                    </div>
+                                    @*<div class="col-md-3 col-sm-3 col-xs-3 pull-right">
+                                        <button type="button" id="selectuser" class="btn green-meadow btn-block">查找</button>
+                                    </div>*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label">@@审核人</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-9" id="checkEmployeeIdsDiv">
+                                        <input type="text" name="Faudit" class="form-control ui-autocomplete-input box" id="txtaudit" readonly="readonly">
+                                        <button type="button" id="selectaudit" class="btn green-meadow btn-block applybtn">申请</button>
+                                    </div>
+                                    @*<div class="col-md-3 col-sm-3 col-xs-3 pull-right">
+                                        <button type="button" id="selectaudit" class="btn green-meadow btn-block">查找</button>
+                                    </div>*@
+                                    <div class="col-md-9 col-sm-9 col-xs-9" id="checkEmployeeDescDiv" style="display:none;">
+                                        <input class="form-control" type="text" value="当事人(奖扣对象)的直接上级" name="FCheckEmployeeDesc" id="FCheckEmployeeDesc" readonly="">
+                                    </div>
+                                </div>
+                                <h5>备注：</h5>
+                                <div class="form-group" id="FContentDiv">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <textarea rows="5" class="form-control" name="FContent" id="FContent" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                                <div id="more"></div>
+                                <div id="attach" style="margin-bottom: 10px;">
+                                    <input id='location' class="form-control" disabled>
+                                    <input type="button" id="i-check" value="浏览" class="btn">
+                                    <input type="file" id='i-file'name="fileData" style="display: none">
+                                    <p style="display:none">@TempData["name"]</p>
+                                    @*<input type="file" id="fileData" name="file" value="上传证据" class=""  multiple sytle="padding-bottom:20px;margin-bottom:20px" >*@
+                                    @*<input type="file" runat="server" name="fileData" multiple />*@
+                                    @*<button value="上传证据" id="Uploadfile">上传证据</button>*@
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="submit" id="save" value="申请" class="btn green-meadow btn-block btn-lg" /><br>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 col-sm-12 col-xs-12 control-label font-red" id="detail"></label>
+                                </div>
+                                <br><br><br><br><br>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="portlet_tab_list">
+                        <div class="col-md-12" id="list" style="padding-top:10px">
+                            <table class="table table-bordered table-striped" FFenLogId="">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                                        <td>5445146593890001</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                                        <td>产品名称征集中被采用</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">奖扣对象</td>
+                                        <td>测试员</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                                        <td>部门领导,人事,总行领导</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                                        <td>待审核</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">内容</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">操作</td>
+                                        <td>
+                                            <button type="button" class="btn red btn-xs delete" FFenLogId="'+item.FFenLogId+'">撤销</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade active in" id="tab1">
+                        @using integrating.web.Data;
+                        @model  IEnumerable<JFitem>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <table class="table table-striped" style="border-collapse:collapse;" fitemid=@item.JF_serial>
+                                    <tbody>
+                                        <tr>
+                                            <td class="tcd">
+                                                @item.desp
+                                                <button type="button" class="btn purple default apply pull-right" fitemid=@item.JF_serial>申请</button>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" class="cr">
+                                            <td class="cd"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+                        }
+                    </div>
+                    <div class="tab-pane fade " id="tab2">
+                        @Html.Action("gettab", "Application", new { id = "01" })
+                    </div>
+                    <div class="tab-pane fade " id="tab3">
+                        @Html.Action("gettab", "Application", new { id = "02" })
+                    </div>
+                    <div class="tab-pane fade " id="tab4">
+                        @Html.Action("gettab", "Application", new { id = "03" })
+                    </div>
+                    <div class="tab-pane fade " id="tab5">
+                        @Html.Action("gettab", "Application", new { id = "04" })
+                    </div>
+                    <div class="tab-pane fade a" id="tab6">
+                        @Html.Action("gettab", "Application", new { id = "05" })
+                    </div>
+                    <div class="tab-pane fade a" id="tab7">
+                        @Html.Action("gettab", "Application", new { id = "06" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+        <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+    </div>
+    @Html.Partial("Footer")
+    <script>
+        jQuery(document).ready(function () {
+            if ($("#attach p").text()=="ck") {
+                $("#portlet_tab_list").addClass('active');
+                $("#applyResult").addClass('active');
+                $("#dropdown").removeClass('active');
+                $('#tab1,#tab2,#tab3,#tab4,#tab5,#tab6,#tab7').removeClass('active in')
+            }
+            else {
+               
+            }
+            $('#i-check').click(function () {
+                $('#i-file').click()
+            })
+
+            $('#attach input').change(function () {
+                $('#location').val($('#i-file').val())
+                successM('上传成功')
+            })
+            $("#selectuser").click(function () {
+                chooseUser()
+            })
+            $("#selectaudit").click(function () {
+                chooseAudit()
+                //$("#txtaudit").val("")
+            })
+           
+            $("#allitem").click(function () {
+                window.location.href = "/Application/Index";
+            });
+            $(".apply").click(function () {
+                $('#applyTab').addClass('active')
+                $('#applyTab').siblings().removeClass('active')
+                $('#portlet_tab_apply').addClass('active in')
+                $('#tab1,#tab2,#tab3,#tab4,#tab5,#tab6,#tab7').removeClass('active in')
+                var id = $(this).attr("fitemid");
+                 $.ajax({
+                            type: "POST", //post 方式
+                            async: false, // true异步 false同步
+                            url: '@Href("/Application/getentitybyid")',// 控制器/方法名
+                            data: { "id": id },//构建json字符串
+                            success: function (data) {
+                                data = JSON.parse(data);
+                                $('#FTitle').attr("value", data.desp);
+                                $('#FFen').val(data.score);
+                                var varscore = data.score;
+                                if (varscore != "待定" && varscore !== "0") {
+                                    $('#FFen').attr("readonly", true);
+                                } else {
+                                    $('#FFen').attr("readonly", false);
+                                    if (data.desp == "标准外申请") {
+                                        $("#FTitle").val("请简要描述积分事项");
+                                        $("#FTitle").attr("style", "color:red")
+                                        $("#FTitle").click(function () {
+                                            $("#FTitle").val("");
+                                            $(this).attr("style", "color:black")
+                                        })
+                                    }
+                                }
+                            },
+                            error: function (data) {
+                                alert("查询的列表不存在");
+                            }
+                        });
+            });
+
+            Metronic.init(); // init metronic core components
+            //Module.init();
+        });
+    </script>
+    <script>
+        loadJSAPI(['biz.contact.choose'], function () {
+
+        })
+
+        //function chooseUserandDep() {
+        //    dd.ready(function () {
+        //        dd.biz.contact.complexChoose({
+        //            startWithDepartmentId: 0, //-1表示从自己所在部门开始, 0表示从企业最上层开始，其他数字表示从该部门开始
+        //            corpId: "ding63597953bd719a95", //企业id
+        //            isNeedSearch: true, // 是否需要搜索功能
+        //            disabledUsers: [72079554], // 不能选中的用户列表
+        //            onSuccess: function (data) {
+        //                alert(JSON.stringify(data["users"][0].emplId))
+        //                alert(JSON.stringify(data))
+        //                return data;
+        //            },
+        //            onFail: function (err) { alert(err) }
+        //        });
+        //    })
+
+        //}
+        function chooseUser() {
+            dd.ready(function () {
+                var defUserIds = $("#txtuser").attr("strId")
+                if (defUserIds) {
+                    defUserIds = JSON.parse(defUserIds)
+                }
+                dd.biz.contact.choose({
+                    startWithDepartmentId: 0, //-1表示打开的通讯录从自己所在部门开始展示, 0表示从企业最上层开始，(其他数字表示从该部门开始:暂时不支持)
+                    corpId: "ding63597953bd719a95", //企业id
+                    users: defUserIds,
+                    isNeedSearch: true, // 是否需要搜索功能
+                    max: 1000,
+                    onSuccess: function (data) {
+                        var str = "";
+                        var userIds = []
+                        for (var i = 0; i < data.length; i++) {
+                            str += data[i].name + ",";
+                            userIds.push(data[i].emplId)
+                        }
+                        if (str.substring(str.length - 1) == ",") {
+                            str = str.substring(0, str.length - 1);
+                        }
+
+                        $("#txtuser").attr("strId", JSON.stringify(userIds));
+                        var count = data.length / 5 + 1;
+                        $("#txtuser").attr("rows", count)
+                        $("#txtuser").val(str)
+                    },
+                    onFail: function (err) { }
+                });
+            });
+        }
+        function chooseAudit() {
+            dd.ready(function () {
+                var defUserIds = $("#txtaudit").attr("strId")
+                if (defUserIds) {
+                    defUserIds = JSON.parse(defUserIds)
+                }
+                dd.biz.contact.choose({
+                    startWithDepartmentId: -1, //-1表示打开的通讯录从自己所在部门开始展示, 0表示从企业最上层开始，(其他数字表示从该部门开始:暂时不支持)
+                    corpId: "ding63597953bd719a95", //企业id
+                    isNeedSearch: true, // 是否需要搜索功能
+                    max: 1,
+                    onSuccess: function (data) {
+                        var str = "";
+                        var userIds = []
+                        for (var i = 0; i < data.length; i++) {
+                            str += data[i].name + ",";
+                            userIds.push(data[i].emplId)
+                        }
+                        if (str.substring(str.length - 1) == ",") {
+                            str = str.substring(0, str.length - 1);
+                        }
+
+                        $("#txtaudit").attr("strId", JSON.stringify(userIds));
+                        $("#txtaudit").val(str)
+                    },
+                    onFail: function (err) { }
+                });
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+           
+        });
+    </script>
+</body>
+</html>

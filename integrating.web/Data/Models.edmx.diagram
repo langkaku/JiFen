@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b9d85b3378b49ffa2fed8737a29676f" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="IntegratingModel.Admins" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntegratingModel.Article" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="IntegratingModel.Menu" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="IntegratingModel.Button" Width="1.5" PointX="6.25" PointY="0.5" />
+        <EntityTypeShape EntityType="IntegratingModel.Role" Width="1.5" PointX="5.625" PointY="3.25" />
+        <EntityTypeShape EntityType="IntegratingModel.Users" PointX="3.375" PointY="5.75" Width="1.5" />
+        <EntityTypeShape EntityType="IntegratingModel.DD_Dept" Width="1.5" PointX="3.25" PointY="3.25" />
+        <EntityTypeShape EntityType="IntegratingModel.DD_User" Width="1.5" PointX="0.875" PointY="3.25" />
+        <EntityTypeShape EntityType="IntegratingModel.business" Width="1.5" PointX="8" PointY="5.75" />
+        <EntityTypeShape EntityType="IntegratingModel.audit" Width="1.5" PointX="10.5" PointY="5.5" />
+        <EntityTypeShape EntityType="IntegratingModel.dic_date" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IntegratingModel.Day_statistics" Width="1.5" PointX="10.625" PointY="9.5" />
+        <EntityTypeShape EntityType="IntegratingModel.IntegratingSet" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="IntegratingModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="IntegratingModel.JFitem" Width="1.5" PointX="5.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IntegratingModel.BussHistory" Width="1.5" PointX="13" PointY="5.875" />
+        <EntityTypeShape EntityType="IntegratingModel.mms_ZEmployee" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IntegratingModel.Role_Menu" Width="1.5" PointX="10.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

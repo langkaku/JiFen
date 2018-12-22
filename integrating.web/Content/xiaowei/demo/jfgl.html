@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="css/plug/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/plug/simple-line-icons.min.css" rel="stylesheet"/>
+    <link href="css/plug/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/plug/components20160915.css" rel="stylesheet"/>
+    <link href="css/plug/plugins.css" rel="stylesheet"/>
+    <link href="css/plug/layout.css" rel="stylesheet"/>
+    <link href="css/plug/fen.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="http://hi.xiaov100.com/favicon.ico">
+    <link href="css/footer.css" rel="stylesheet"/>
+    <script src="js/plug/jquery.min.js"></script>
+    <script src="js/plug/jquery-migrate.min.js"></script>
+    <script src="js/plug/bootstrap.min.js"></script>
+    <script src="js/plug/metronic.js"></script>
+    <script src="js/plug/fen20160919.js"></script>
+    <script src="js/jfgl.js"></script>
+</head>
+<body style="background: #f6fbfc;">
+    <div class="alert alert-info" id="common">
+        升级新版本了，快来围观<a href="#" class="btn btn-xs yellow pull-right">升级公告</a>
+    </div>
+    <div class="page-padding" style="padding:25px 20px 10px 20px">
+        <div id="accordion1" class="panel-group accordion" style="padding-bottom: 55px;">
+            <div class="panel panel-default">
+                <div class="panel-heading" href="#accordion1_101">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_101">
+                            各挣分通道的设置
+                        </a>
+                    </h4>
+                </div>
+                <div id="accordion1_101" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="tiles">
+                            <h4>每月基础分 管理</h4>
+                            <div class="tile bg-blue fenBaseManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-codepen"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        月基础分管理
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles">
+                            <h4>申请类积分 管理</h4>
+                            <div class="tile bg-blue itemManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-flag"></i>
+                                </div>
+                                <div class="tile-object">   
+                                    <div class="name">
+                                        积分标准制定
+                                    </div>     
+                                </div>
+                            </div>
+                            <div class="tile bg-grey fenCheck" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-check-square-o"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        积分审核
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey fenConfig" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-user-following"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        分数权限配置
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey fenCheckQuery" style="display: block;">
+                                <div class="tile-body">
+                                    积分查询<br>(按审核人查)
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey fenUncheckQuery" style="display: block;">
+                                <div class="tile-body">
+                                    积分查询<br>(查看待审核的)
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey fenCheckFailQuery" style="display: block;">
+                                <div class="tile-body">
+                                    积分查询<br>(查看被驳回的)
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles">
+                            <h4>考勤 管理</h4>
+                            <div class="tile bg-grey workTimeManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-speedometer"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        排班设置
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey signSetManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-settings"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        考勤分数设置
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-grey signChangeManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-wrench"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        考勤调整
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tiles">
+                            <h4>日志 管理</h4>
+                            <div class="tile bg-blue workLogManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-pointer"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        日志点评
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-blue workLogSet" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-settings"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        日志分数设置
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="tiles" style="display: none;">
+                            <h4>学院 管理</h4>
+                            <div class="tile bg-blue knowTypeManage" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        学院设置
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-blue knowAdmin" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="icon-layers"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        工作知识审核
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles" style="display: none;">
+                            <h4>制度 管理</h4>
+                            <div class="tile bg-blue codexTypeManage" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        制度类别
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-blue codexManage" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="icon-book-open"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        制度管理
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles" style="display: none;">
+                            <h4>项目 管理</h4>
+                            <div class="tile bg-blue projectManage" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="fa fa-thumb-tack"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        项目计划
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-blue projectCheck" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="fa fa-check-square-o"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        项目审核
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles" style="display: none;">
+                            <h4>建议 管理</h4>
+                            <div class="tile bg-blue suggestManage" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="glyphicon glyphicon-leaf"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        建议批复
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-blue suggestSet" style="display: none;">
+                                <div class="tile-body">
+                                    <i class="icon-settings"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        建议分设置
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--             <div class="panel panel-default">
+                <div class="panel-heading" href="#accordion1_102">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_102">
+                            积分综合管理
+                        </a>
+                    </h4>
+                </div>
+                <div id="accordion1_102" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="tiles">
+                            <h4>积分查询、统计、撤销</h4>
+                            <div class="tile bg-purple everyDayFen" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        积分查询
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-purple fenQuery" style="display: block;">
+                                <div class="tile-body">
+                                    积分查询<br>(按奖扣对象查)
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-purple reportManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-bar-chart"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        积分统计
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile fenCancel bg-grey" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-reply-all"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        积分撤消
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles">
+                            <h4>积分看板管理</h4>
+                            <div class="tile bg-purple indexManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-home"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        首页展示设置
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile paramManage bg-grey" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-empire"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        更多展示设置
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="panel panel-default">
+                <div class="panel-heading" href="#accordion1_104">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_104">
+                            系统设置
+                        </a>
+                    </h4>
+                </div>
+                <div id="accordion1_104" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="tiles">
+                            <h4>人员资料、组织架构</h4>
+                            <div class="tile employeeManage bg-grey" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        人员管理
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile deptManage bg-yellow" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-sitemap"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        更新部门
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile positionManage bg-grey" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-tag"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        职位管理
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-yellow educationManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-mortar-board"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        学历管理
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-yellow titleManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-bookmark"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        职称管理
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="tile bg-yellow specManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-magic"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        特长管理
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="tile bg-yellow specManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        更新人员
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile bg-yellow specManage" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="fa fa-database"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        更新基础积分
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tiles">
+                            <h4>权限管理</h4>
+                            <div class="tile powerManage bg-grey" style="display: block;">
+                                <div class="tile-body">
+                                    <i class="icon-user-following"></i>
+                                </div>
+                                <div class="tile-object">
+                                    <div class="name">
+                                        权限管理
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="widget" data-widget="nav4" class="nav4">
+        <div id="nav4_ul" class="nav_4">
+            <ul class="footer" style="margin:0px !important;">
+                <li>
+                    <a href="index.html" id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+                </li>
+                <li>
+                    <a href="wd.html" id="userMenu"><i class="fa fa-user"></i><p>我的</p></a>
+                </li>
+                <li>
+                    <a href="sqjf.html" id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+                </li>
+                <li>
+                    <a href="jfgl.html" id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

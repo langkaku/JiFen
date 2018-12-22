@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+@using integrating.web.Common
+@model IEnumerable<JRRank>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        int i = 1;
+        i = i++;
+            <tr>
+            <td>第<h5 style="display:inline !important">@item.num</h5>名</td>
+            <td>@item.name</td>
+            <td>@item.depname</td>
+            <td>@item.scoresum</td>
+            </tr>
+    }
+}

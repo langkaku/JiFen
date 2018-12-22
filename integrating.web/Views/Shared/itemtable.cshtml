@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+@using integrating.web.Data;
+@model  IEnumerable<JFitem>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+    <table class="table table-striped" style="border-collapse:collapse;" fitemid=@item.JF_serial>
+        <tbody>
+            <tr>
+                <td class="tcd">
+                    @item.desp
+                    <button type="button" class="btn purple default apply pull-right" id="@item.JF_serial" value="@item.JF_serial" fitemid="@item.JF_serial">申请</button>
+                </td>
+            </tr>
+            <tr style="display:none" class="cr">
+                <td class="cd"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    }
+    }

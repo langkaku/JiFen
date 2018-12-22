@@ -1,0 +1,468 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>积分审核</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/select2.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/plugins.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/select2.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/jfsh.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-migrate.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/bootstrap.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery-ui.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.blockui.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.validate.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/metronic.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fen20160825.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fenCheck-hdip20180913.js"></script>
+</head>
+<body class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-sidebar-closed" style="background:none !important;">
+    <div class="modal fade draggable-modal ui-draggable" id="modalShare">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ui-draggable-handle">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">
+                        <i class="fa fa-share" style="font-size:16px; margin-right:10px"></i>共享
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="formShare" name="formShare" class="form-horizontal">
+                        <input type="hidden" name="FFenLogId" id="shareFenLogId">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">
+                                    共享给谁去审核： <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <div class="select2-container form-control select2me" id="s2id_FCheckEmployeeId"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-1">&nbsp;</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen1_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-1" id="s2id_autogen1_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-1">   </ul></div></div><select class="form-control select2me select2-offscreen" id="FCheckEmployeeId" name="FCheckEmployeeId" data-placeholder="" tabindex="-1" title=""></select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                    <button type="button" id="toShare" class="btn green">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade draggable-modal ui-draggable" id="modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ui-draggable-handle">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">
+                        <i class="glyphicon glyphicon-remove" style="font-size:16px; margin-right:10px"></i>不通过
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="form1" name="form1" class="form-horizontal">
+                        <input type="hidden" name="FFenLogId">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    不通过原因： <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <textarea rows="6" cols="50" class="form-control" name="FFailReason"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                    <button type="button" id="save" class="btn green">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade draggable-modal ui-draggable" id="modal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ui-draggable-handle">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">
+                        <i class="glyphicon glyphicon-remove" style="font-size:16px; margin-right:10px"></i>不通过
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="form2" name="form2" class="form-horizontal">
+                        <input type="hidden" name="FFenLogId2">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    不通过原因： <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <textarea rows="6" cols="50" class="form-control" name="FFailReason2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                    <button type="button" id="save2" class="btn green">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="FFenLogId">
+    <div class="modal fade bs-modal-lg draggable-modal ui-draggable" id="modal3">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header ui-draggable-handle">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="modal-title">
+                        找对应的标准
+                    </h4>
+                </div>
+                <div class="modal-body" id="selectItem">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade draggable-modal ui-draggable" id="modal4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ui-draggable-handle">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">
+                        <i class="fa fa-check" style="font-size:16px; margin-right:10px"></i>审核通过(直接指定分数)
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="form4" name="form4" class="form-horizontal" novalidate="novalidate">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="col-sm-6 col-xs-6" style="padding-right:0px; margin-right:0px">
+                                    <button class="btn default dropdown-toggle pull-right" id="addOrDecButton" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span id="addOrDecTitle">请选择加分或扣分</span> <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href="javascript:;" id="addFen">
+                                                加分
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" id="decFen">
+                                                扣分
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4 col-xs-4" style="padding-left:0px; margin-left:0px">
+                                    <input type="text" value="" name="FFen" id="FFen" class="form-control" style="font-size:24px">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                    <button type="button" id="save4" class="btn purple">确认分数并通过审核</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-padding" style="padding:25px 20px 10px 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box purple">
+                    <div class="portlet-title">
+                        <ul class="nav nav-tabs pull-left" id="checkTab">
+                            <li class="active">
+                                <a href="#portlet_tab_1" data-toggle="tab">需要我审核的</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#portlet_tab_2" data-toggle="tab" id="shareListNum">共享的<span id="shareDiv" style="">(<span id="shareLength">1</span>)</span></a>
+                            </li> -->
+                            <li>
+                                <a href="#portlet_tab_3" data-toggle="tab" id="shareListNum">我的申请</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="portlet_tab_1">
+                                <div class="tools">
+                                    <a class="btn btn-default all"><i class="fa fa-check"></i> 全部通过 </a>
+                                </div><br>
+                                <table class="table table-bordered" id="table1">
+                                    <thead>
+                                        <tr><th>积分申请单</th></tr>
+                                    </thead>
+                                    <tbody id="checkContent">
+                                        <tr ffenlogid="5326610724590001">
+                                            <td>
+                                                <div class="meet-our-team">
+                                                    <h4>
+                                                        项目攻坚
+                                                        <br>
+                                                        <span class="label label-primary"></span>
+                                                        <span class="CRight">
+                                                            待定
+                                                            <br>
+                                                            <small>申请分数</small>
+                                                        </span>
+                                                    </h4>
+                                                    <div class="team-info">
+                                                        <p>
+                                                            奖扣对象 ：测试员
+                                                            <br>所在部门：科技部
+                                                            <br>
+                                                            <br>申请人员 ：测试员
+                                                            <br>申请时间 ：2018-07-27 11:11:12
+                                                            <br>单据号　 ：5326610724590001
+                                                        </p>
+                                                        <br>
+                                                        <p>
+                                                        </p>
+                                                        <div class="btn-group dropup">
+                                                            <button class="btn default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                                                通过
+                                                                <i class="fa fa-angle-up"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li>
+                                                                    <a stepfen="未知" class="pass">未知分</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a stepfen="未知" class="pass">未知分</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a stepfen="未知" class="pass">未知分</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <a class="fail btn default red-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-times"></i>不通过
+                                                        </a>
+                                                        <a class="share btn default blue-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-share"></i>共享
+                                                        </a>
+                                                        <p>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr ffenlogid="5326778203420001">
+                                            <td>
+                                                <div class="meet-our-team">
+                                                    <h4>
+                                                        微信为公司分享朋友圈加2分
+                                                        <br>
+                                                        <span class="label label-primary">
+                                                            <p>
+                                                                核实
+                                                                <br>
+                                                            </p>
+                                                        </span>
+                                                        <span class="CRight">
+                                                            2
+                                                            <br>
+                                                            <small>申请分数</small>
+                                                        </span>
+                                                    </h4>
+                                                    <div class="team-info">
+                                                        <p>
+                                                            奖扣对象 ：测试员
+                                                            <br>所在部门：科技部
+                                                            <br>
+                                                            <br>申请人员 ：测试员
+                                                            <br>申请时间 ：2018-07-27 15:50:20
+                                                            <br>单据号　 ：5326778203420001
+                                                        </p>
+                                                        <br>
+                                                        <p>
+                                                            <a class="pass btn default purple-stripe" href="javascript:;" irow="0">
+                                                                <i class="fa fa-check"></i>通过
+                                                            </a>
+                                                            <a class="fail btn default red-stripe" href="javascript:;" irow="0">
+                                                                <i class="fa fa-times"></i>不通过
+                                                            </a>
+                                                            <a class="share btn default blue-stripe" href="javascript:;" irow="0">
+                                                                <i class="fa fa-share"></i>共享
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr ffenlogid="5326834484960001" ftitle="特特">
+                                            <td>
+                                                <div class="meet-our-team">
+                                                    <h4>
+                                                        特特
+                                                        <br>
+                                                        <span class="label label-primary"></span>
+                                                        <span class="CRight">
+                                                            待定
+                                                            <br>
+                                                            <small>申请分数</small>
+                                                        </span>
+                                                    </h4>
+                                                    <div class="team-info">
+                                                        <p>
+                                                            奖扣对象 ：测试员
+                                                            <br>所在部门：科技部
+                                                            <br>
+                                                            <br>申请人员 ：测试员
+                                                            <br>申请时间 ：2018-07-27 17:24:08
+                                                            <br>单据号　 ：5326834484960001
+                                                        </p>
+                                                        <br>
+                                                        <p>
+                                                        </p>
+                                                        <p style="font-size:12px;" class="font-red">这是积分标准之外的申请，审核时需要指定是依据哪条标准或直接指定分数</p>
+                                                        <a class="pass btn default purple-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-check"></i>审核通过(指定标准)
+                                                        </a>
+                                                        <br>
+                                                        <br>
+                                                        <a class="passByFen btn default purple-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-check"></i>&nbsp;审核通过(指定分数)
+                                                        </a>
+                                                        <br>
+                                                        <br>
+                                                        <a class="fail btn default red-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-times"></i>不通过
+                                                        </a>
+                                                        <a class="share btn default blue-stripe" href="javascript:;" irow="0">
+                                                            <i class="fa fa-share"></i>共享
+                                                        </a>
+                                                        <p>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                                    </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="portlet_tab_3">
+                                <table class="table table-bordered" id="table3">
+                                    <thead>
+                                        <tr><th>积分申请单</th></tr>
+                                    </thead>
+                                    <tbody id="checkContent">
+                                        <tr ffenlogid="5326610724590001">
+                                            <td>
+                                                <div class="meet-our-team">
+                                                    <h4>
+                                                        系统建设
+                                                        <br>
+                                                        <span class="label label-primary"></span>
+                                                        <span class="CRight">
+                                                            100
+                                                            <br>
+                                                            <small>申请分数</small>
+                                                        </span>
+                                                    </h4>
+                                                    <div class="team-info">
+                                                        <p>
+                                                            奖扣对象 ：测试员
+                                                            <br>所在部门：科技部
+                                                            <br>
+                                                            <br>申请人员 ：测试员
+                                                            <br>申请时间 ：2018-07-27 11:11:12
+                                                            <br>单据号　 ：5326610724590001
+                                                        </p>
+                                                        <br>
+                                                        <p>
+                                                        </p>
+                                                        <div class="btn-group dropup">
+                                                            <button class="btn default dropdown-toggle" type="reset" data-toggle="dropdown" aria-expanded="false">
+                                                               已通过
+                                                            </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr ffenlogid="5326778203420001">
+                                            <td>
+                                                <div class="meet-our-team">
+                                                    <h4>
+                                                       为行内刊出谋划策
+                                                        <br>
+                                                        <span class="label label-primary">
+                                                            <p>
+                                                                核实
+                                                                <br>
+                                                            </p>
+                                                        </span>
+                                                        <span class="CRight">
+                                                            200
+                                                            <br>
+                                                            <small>申请分数</small>
+                                                        </span>
+                                                    </h4>
+                                                    <div class="team-info">
+                                                        <p>
+                                                            奖扣对象 ：测试员
+                                                            <br>所在部门：科技部
+                                                            <br>
+                                                            <br>申请人员 ：测试员
+                                                            <br>申请时间 ：2018-07-27 15:50:20
+                                                            <br>单据号　 ：5326778203420001
+                                                        </p>
+                                                        <br>
+                                                        <p>
+                                                            <a class=" btn default purple-stripe" href="javascript:;" irow="0">终审中
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("Footer")
+    <script>
+        jQuery(document).ready(function () {
+            Metronic.init(); // init metronic core components
+            Module.init();
+        });
+    </script>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
+</body>
+</html>

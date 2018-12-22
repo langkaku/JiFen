@@ -1,0 +1,20 @@
+﻿@Styles.Render("~/Content/Footer")
+<div data-role="widget" data-widget="nav4" class="nav4" style="position:fixed">
+    <div id="nav4_ul" class="nav_4">
+        <ul class="footer" style="padding-top:0px !important;">
+            <li>
+                <a href='@Url.Action("Index","Firstpage")' id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index","MyIntegral")'><i class="fa fa-user"></i><p>我的</p></a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index","Application")' id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index","Manage")' id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+            </li>
+        </ul>
+    </div>
+
+</div>

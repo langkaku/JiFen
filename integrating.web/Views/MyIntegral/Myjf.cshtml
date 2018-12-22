@@ -1,0 +1,493 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>我的积分</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/select2.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/page.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/components.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/plugins.css" rel="stylesheet" />
+    <link href="~/Content/xiaowei/demo/css/plug/fen.css" rel="stylesheet" />
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/select2.min.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/jquery.myPagination.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/metronic.js" type="text/javascript"></script>
+    <script src="~/Content/xiaowei/demo/js/plug/fen.js"></script>
+    <script src="~/Content/xiaowei/demo/js/wdjf.js"></script>
+</head>
+<body style="">
+    <div class="portlet box purple" style="border:0;">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="glyphicon glyphicon-list"></i>&nbsp;我的积分
+            </div>
+            <div class="dropdown pull-right">
+                <a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" class="dropdown-toggle" data-toggle="dropdown" id="FFlagName" style="color:#fff;font-size:14px;line-height: 41px;text-decoration: none;">全部类型<b class="caret"></b></a>
+                <ul class="dropdown-menu" id="FFlag">
+                    <li><a href="javascript:;" class="btn" fflag="">全部类型</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="10">每月基础分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="2">申请类积分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="20">部门任务分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="3">悬赏分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="4">兼职分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="5">考勤分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="(7,8)">日志分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="14">项目分</a><b></b></li>
+                    <li><a href="javascript:;" class="btn" fflag="(6,19)">其它分</a><b></b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="portlet-body" style="">
+            <p>
+                我的今日积分：
+                <strong id="FFenToday">11</strong>，
+                当月积分：
+                <strong id="FFenCurrMonth">239</strong>，
+                总积分：
+                <strong id="FFen">88123</strong>
+            </p>
+            <div id="content">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>5446309341580001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>写日志奖积分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2018-12-13 00:08:54</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2018-12-13 00:08:54</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>写日志奖积分，奖励10积分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>5446661892070002</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>每日小惊喜</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2018-12-13 09:56:29</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2018-12-13 09:56:29</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>抽中奖品:1分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4830690316620002</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>员工积极参加公司组织的培训奖50分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>访客</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2016-12-30 11:37:11</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>刘伟</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-03-09 16:09:27</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>2016-12-30天天向上:加50积分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4830690820060002</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>每天按质按量完成当日工作</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>访客</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2016-12-30 11:38:02</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>刘伟</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-03-09 16:09:35</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>2016-12-30天天向上:加10积分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4865202772260001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>获得一个客户好评奖50分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>shopping</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 10:17:57</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>shopping</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 10:18:04</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4865217038540001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>员工积极参加公司组织的培训奖50分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 10:41:43</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 10:41:47</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4865180219830001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>学习工作知识加10分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 09:40:21</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 09:40:21</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>学习工作知识【《样板企业标准系列之一》理明】,加10分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4864838496710002</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>写日志奖积分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 00:10:49</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>系统</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 00:10:49</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td>写日志奖积分，奖励10积分</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4865216851190001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>开会积极发言加10分</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 09:41:25</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 10:41:47</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">单据号</td>
+                            <td>4865199542360001</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分标题</td>
+                            <td>工作时听MP3音乐、玩手机，上班做私事，看书报和杂志</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">积分</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">申请时间</td>
+                            <td>2017-02-08 10:12:34</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">状态</td>
+                            <td>已通过</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核人</td>
+                            <td>何磊</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">审核时间</td>
+                            <td>2017-02-08 10:14:23</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px; font-weight:bold; background-color:#eee" width="5%" nowrap="">详情</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="pagination" style="font-size: 16px; text-align: center;" class="sabrosus"><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="1">首页</a><span class="disabled" title="前一页">前一页 </span><span class="current" title="1">1</span><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="2">2</a><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="3">3</a><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="4">4</a><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="5">5</a><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="2">后一页 </a><a href="http://hi.xiaov100.com/templates/my/my-hdip.html#" title="35">尾页</a></div>
+        </div>
+    </div>
+    @Html.Partial("Footer");
+    @*<div data-role="widget" data-widget="nav4" class="nav4">
+        <div id="nav4_ul" class="nav_4">
+            <ul class="footer" style="margin:0px !important;">
+                <li>
+                    <a href="index.html" id="mobileMenu"><i class="fa fa-home"></i><p>首页</p></a>
+                </li>
+                <li>
+                    <a href="wd.html" id="userMenu"><i class="fa fa-user"></i><p>我的</p></a>
+                </li>
+                <li>
+                    <a href="sqjf.html" id="userMenu"><i class="fa fa-edit"></i><p>申请分</p></a>
+                </li>
+                <li>
+                    <a href="jfgl.html" id="manageMenu"><i class="fa fa-cog"></i><p>管理</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>*@
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+@using integrating.web.Data;
+@*<script src="~/Content/xiaowei/demo/js/sqjf.js"></script>
+<link href="~/Content/xiaowei/demo/css/sqjf.css" rel="stylesheet" />*@
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <li>
+            <a href="#tab_5422501016530001" tabindex="-1" data-toggle="tab" class="itemA" id="@item.JF_serial"> @item.desp </a>
+            @*<i class="fa fa-angle-down"></i>
+            <ul class="second">*@
+                @Html.Action("GetSecondMenu", "Application", new { id = item.JF_serial })
+            @*</ul>*@
+        </li>
+    }
+}

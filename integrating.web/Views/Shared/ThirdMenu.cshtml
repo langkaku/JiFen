@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+}
+@using integrating.web.Data;
+@model  IEnumerable<JFitem>
+@if (Model != null)
+{
+    <i class="fa fa-angle-down"></i>
+    foreach (var item in Model)
+    {
+        <ul class="third">
+            <li>
+                <a href="#" id=@item.JF_serial>@item.desp</a>
+                @*@Html.Action("Getitem", "Application", new { id = item.JF_serial })*@
+            </li>
+        </ul>
+    }
+}
